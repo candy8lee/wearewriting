@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+body, html {
+height: 100%;
+background-repeat: no-repeat;    /*background-image: linear-gradient(rgb(12, 97, 33),rgb(104, 145, 162));*/
+background: rgb(207, 192, 159);
+position: relative;
+}
+#glass{
+  background: white;
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+  margin-left: -40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 2px 0px 2px rgba(255, 255, 255, 0.3);
+}
+#login-box {
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translateX(-50%);
+width: 350px;
+margin: 0 auto;
+min-height: 250px;
+padding: 40px;
+border-radius: 15px;
+z-index: 5;
+}
+/*LOGIN title*/
+#login-box .logo .logo-caption {
+font-family: 'Poiret One', cursive;
+color: white;
+text-align: center;
+margin-bottom: 0px;
+opacity: 1;
+}
+/*LOGIN title first letter*/
+#login-box .logo .tweak {
+color: #ff5252;
+font-weight: bold;
+font-size: 40px;
+}
+/*typing control bar*/
+#login-box .controls {
+padding-top: 30px;
+opacity: 1;
+}
+/*typing control bar -username-password*/
+#login-box .controls input {
+background: rgb(102, 76, 67);
+border: 0px;
+color: white;
+font-family: 'Nunito', sans-serif;
+font-size: 15px;
+font-weight: bold;
+text-align: center;
+/*password's border*/
+border-top-left-radius: 0px;
+border-top-right-radius: 0px;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+opacity: 1;
+}
+/*Username's border*/
+#login-box .controls input:first-child {
+border-top-left-radius: 20px;
+border-top-right-radius: 20px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+/*click input none display shadow*/
+#login-box .controls input:focus {
+box-shadow: none;
+background: rgb(207, 192, 159);
+color: rgb(102, 76, 67);
+}
+#login-box button.btn-custom {
+width: 80%;
+border-radius: 2px;
+margin: 50px auto 30px auto;
+background:#ff5252;
+color: white;
+font-family: 'Nunito', sans-serif;
+}
+#login-box button.btn-custom:hover{
+-webkit-transition: all 500ms ease;
+-moz-transition: all 500ms ease;
+-ms-transition: all 500ms ease;
+-o-transition: all 500ms ease;
+transition: all 500ms ease;
+background: rgb(102, 76, 67);
+border-color: #ff5252;
+border-radius: 10px;
+}
+#particles-js{
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: 50% 50%;
+position: fixed;
+top: 0px;
+z-index:1;
+}
