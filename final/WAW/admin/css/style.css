@@ -1,0 +1,14 @@
+.btn-warning{
+  background: rgb(233, 195, 121);
+  font-size: 20px;
+  color: #FFF;
+}
+.navbar-brand{
+  background: rgb(233, 195, 121) !important;
+}
+.navbar{
+  background: rgb(233, 195, 121) !important;
+}
+.breadcrumb{
+  background: rgb(255, 238, 205);
+}
