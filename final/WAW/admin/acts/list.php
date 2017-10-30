@@ -34,7 +34,7 @@ $totalRows = count($acts);
           <table class="table">
             <thead>
               <tr>
-                <th>活動天數</th>
+                <th style="text-align: center">活動天數</th>
                 <th>活動開跑至結束日期</th>
                 <th>標題</th>
                 <th>編輯</th>
@@ -44,7 +44,7 @@ $totalRows = count($acts);
             <tbody>
             <?php foreach ($acts as $row ) { ?>
               <tr>
-                <td>
+                <td style="text-align: center">
                 <?php
                   $begin = strtotime($row['happy_end']);
                   $end = strtotime($row['start']);
@@ -52,7 +52,7 @@ $totalRows = count($acts);
                   echo $HowLong;
                 ?>
                 </td>
-                <td><?php echo $row['start']; ?> ~ <?php echo $row['happy_end']; ?></td>
+                <td width=30%><?php echo $row['start']; ?> ~ <?php echo $row['happy_end']; ?></td>
                 <td><?php echo $row['title']; ?></td>
                 <td><a href="edit.php?actID=<?php echo $row['actID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                 <td><a href="delet.php?actID=<?php echo $row['actID']; ?>" class="btn btn-warning" role="button" onclick="if(!confirm('是否刪除此筆資料？')){return false;};"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>

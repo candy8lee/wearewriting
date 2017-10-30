@@ -27,8 +27,6 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <?php include_once("../template/header.php"); ?>
   <script type="text/javascript">
     $(function() {

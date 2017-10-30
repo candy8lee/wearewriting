@@ -21,8 +21,7 @@ include_once("../template/header.php");
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php require_once('../template/header.php'); ?>
   <script>
   $( function() {
     $( ".Date" ).datepicker({
