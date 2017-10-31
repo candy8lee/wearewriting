@@ -49,7 +49,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
       </div>
       <div class="row">
         <div class="col-md-12">
-        <ul class="breadcrumb my-3" style="margin-bottom:0px;margin-top:0px">
+        <ul class="breadcrumb my-3">
           <li class="breadcrumb-item"><a href="list.php?cateID=<?php echo $_GET['cateID']; ?>">主控台</a></li>
           <li class="breadcrumb-item">常見問題管理-<?php echo $QAcate['category']; ?></li>
 		  <li class="breadcrumb-item active">編輯-<?php echo $QAreply['title']; ?></li>
