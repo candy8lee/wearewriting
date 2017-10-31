@@ -39,8 +39,8 @@ $QAcate = $sth->fetchALL(PDO::FETCH_ASSOC);
               <?php foreach ($QAcate as $row) { ?>
               <tr>
                 <td style="text-align: center"><a href="../question/list.php?cateID=<?php echo $row['categoryID'] ?>"><?php echo $row['category']; ?></a></td>
-                <td><a href="edit.php?actID=<?php echo $row['actID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                <td><a href="delet.php?actID=<?php echo $row['actID']; ?>" class="btn btn-danger" role="button" onclick="if(!confirm('刪除分類將會將此分類下所有資料一併清除，確認刪除？')){return false;};"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                <td><a href="edit.php?cateID=<?php echo $row['categoryID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                <td><a href="delet.php?cateID=<?php echo $row['categoryID']; ?>" class="btn btn-danger" role="button" onclick="if(!confirm('刪除分類將會將此分類下所有資料一併清除，確認刪除？')){return false;};"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
               </tr>
             <?php } ?>
             </tbody>

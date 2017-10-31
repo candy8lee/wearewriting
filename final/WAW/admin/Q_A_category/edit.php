@@ -1,8 +1,8 @@
 <?php
-require_once("../../connection/database.php");
+require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
-  $sql= "UPDATE question_category SET
-                                  category= :category
+  $sql= "UPDATE q_a_category SET
+                                 category= :category
                                  WHERE categoryID= :categoryID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":category", $_POST['category'], PDO::PARAM_STR);
@@ -11,17 +11,15 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
 
   header('Location: list.php');
 }
-$sql = "SELECT * FROM question_category WHERE categoryID=".$_GET['cateID'];
+$sql = "SELECT * FROM q_a_category WHERE categoryID=".$_GET['cateID'];
 $sth = $db->query($sql);
 $name = $sth->fetch(PDO::FETCH_ASSOC);
  ?>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="..\CSS\admin.css" type="text/css"> </head>
+<?php require_once('../template/header.php'); ?>
+</head>
 
 <body>
   <?php include_once("../template/nav.php"); ?>
@@ -29,12 +27,17 @@ $name = $sth->fetch(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-3" contenteditable="true">常見問題管理-編輯</h1>
-          <a class="btn btn-primary my-2" href="list.php">上一頁</a>
+          <h1 class="display-5" contenteditable="true">常見問題分類管理-編輯</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
+		  <ul class="breadcrumb my-5" style="margin-bottom:0px;margin-top:0px">
+            <li class="breadcrumb-item">
+              <a href="list.php">主控台</a>
+            </li>
+            <li class="breadcrumb-item active">常見問題分類管理-<?php echo $name['category']; ?></li>
+          </ul>
           <form class="" method="post" action="edit.php"  data-toggle="validator">
             <div class="form-group">
                 <div class="col-sm-2">
@@ -49,38 +52,14 @@ $name = $sth->fetch(PDO::FETCH_ASSOC);
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="categoryID" value="<?php echo $name['categoryID']; ?>">
-                  <button type="submit" class="btn btn-primary">送出</button>
+				  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                  <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
           </form>
         </div>
       </div>
-      <div class="row"> </div>
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="pagination my-4">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">«</span> <span class="sr-only">Previous</span> </a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">»</span> <span class="sr-only">Next</span> </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+   </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
