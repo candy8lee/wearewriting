@@ -82,7 +82,7 @@ $member = $sth->fetch(PDO::FETCH_ASSOC);
           <form class="" method="post" action="edit.php" enctype="multipart/form-data">
             <div class="form-group">
                 <div class="col-sm-2">
-                  <img src="../../upload/member/<?php echo $member['picture']; ?>"></img>
+                  <img src="../../upload/member/<?php echo $member['picture']; ?>" width="200px"></img>
                 </div>
                 <div class="col-sm-10">
                   <input type="file" class="form-control" id="picture" name="picture">
