@@ -66,7 +66,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 						<option value="亞洲">&nbsp&nbsp亞洲</option>
 						<option value="歐洲">&nbsp&nbsp歐洲</option>
 						<option value="美洲">&nbsp&nbsp美洲</option>
-						<option value="澳洲">&nbsp&nbsp澳洲</option>
+						<option value="大洋洲">&nbsp&nbsp大洋洲</option>
 				  </select>
                 </div>
             </div>

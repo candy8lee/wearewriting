@@ -1,9 +1,18 @@
 <?php
 require_once('../../asset/connection/database.php');
 if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
-  $sql= "INSERT INTO brand( name, content, nation, createdDate, author)
-                VALUES ( :name, :content, :nation, :createdDate, :author)";
+  //上傳LOGO
+  if(isset($_FILES['logo']['name']) && $_FILES['logo']['name'] != null){
+    if (!file_exists('../../upload/brand')) mkdir('../../upload/brand', 0755, true);
+    $fileTYPE = strrchr($_FILES['logo']['name'],".");//查找字串，遇到"."停止->分割副檔名
+    $filename = $_POST['name'].date('YmdHis').$fileTYPE;
+    move_uploaded_file($_FILES['logo']['tmp_name'] , "../../upload/brand/".$filename);   // 搬移上傳檔案
+  }
+
+  $sql= "INSERT INTO brand( logo, name, content, nation, createdDate, author)
+                VALUES ( :logo, :name, :content, :nation, :createdDate, :author)";
   $sth = $db ->prepare($sql);
+  $sth ->bindParam(":logo", $filename, PDO::PARAM_STR);
   $sth ->bindParam(":name", $_POST['name'], PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
   $sth ->bindParam(":nation", $_POST['nation'], PDO::PARAM_STR);

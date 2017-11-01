@@ -47,7 +47,7 @@ $totalRows = count($brand);
             <tbody>
             <?php foreach ($brand as $row ) { ?>
               <tr>
-                <td><img src="../../upload/brand/<?php echo $row['logo']; ?>"></img></td>
+                <td style="text-align:center;"><img src="../../upload/brand/<?php echo $row['logo']; ?>" width="100px"></img></td>
                 <td style="text-align:center;"><?php echo $row['name']; ?></td>
 				<td><?php echo $row['content']; ?></td>
                 <td><a href="edit.php?brandID=<?php echo $row['brandID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
