@@ -12,7 +12,7 @@
             <li><a href="../acts/list.php">活動管理</a></li>
             <li><a href="../Q_A_category/list.php">Q&A管理</a></li>
             <li><a href="../brand/list.php">品牌介紹管理</a></li>
-            <li><a href="../news/list.php">相關產業介紹管理</a></li>
+            <li><a href="../industry/list.php">相關產業介紹管理</a></li>
           </ul>
         </li>
         <li class="nav-item">
