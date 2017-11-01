@@ -41,13 +41,24 @@ $totalRows = count($wish);
     <div class="row">
         <div class="col-md-12 text-right my-3">
           Sort by:&nbsp&nbsp
-          <a href="list.php">全部顯示。</a>
-          <a href="list.php?status=0">新願望。</a>
-          <a href="list.php?status=1">處理中。</a>
-          <a href="list.php?status=2">核定中。</a>
-          <a href="list.php?status=3">完成。</a>
-          <a href="list.php?status=80">評估中。</a>
-          <a href="list.php?status=99">流標。</a>
+            <a href="list.php">全部顯示。</a>
+            <a href="list.php?status=0">新願望。</a>
+            <a href="list.php?status=1">處理中。</a>
+            <a href="list.php?status=2">核定中。</a>
+            <a href="list.php?status=3">完成。</a>
+            <a href="list.php?status=80">評估中。</a>
+            <a href="list.php?status=99">流標。</a>
+        <!--
+        <select name="">
+          <option>全部顯示</option>
+          <option value="0">新願望</option>
+          <option value="1">處理中</option>
+          <option value="2">核定中</option>
+          <option value="3">完成</option>
+          <option value="80">評估中</option>
+          <option value="99">流標</option>
+        </select>
+        -->
         </div>
     </div>
 	  <div class="row">

@@ -52,7 +52,7 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
       <div class="row">
         <div class="col-md-12">
           <form class="" method="post" action="add.php"  data-toggle="validator" enctype="multipart/form-data">
-			<div class="form-group">
+			      <div class="form-group">
                 <div class="col-sm-2">
                   <label for="logo" class="control-label">LOGO</label>
                 </div>

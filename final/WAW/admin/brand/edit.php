@@ -57,7 +57,7 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
       </div>
       <div class="row">
         <div class="col-md-12">
-          <ul class="breadcrumb my-5"">
+          <ul class="breadcrumb my-5">
             <li class="breadcrumb-item"><a href="list.php">主控台</a></li>
             <li class="breadcrumb-item">品牌介紹管理</li>
 			<li class="breadcrumb-item active">編輯-<?php echo $brand['name']; ?></li>

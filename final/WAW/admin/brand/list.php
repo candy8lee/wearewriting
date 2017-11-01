@@ -39,7 +39,7 @@ $totalRows = count($brand);
               <tr>
                 <th width=20% style="text-align:center;">LOGO</th>
                 <th width=20% style="text-align:center;">品牌</th>
-				<th width=40% style="text-align:center;">介紹</th>
+        				<th width=40% style="text-align:center;">介紹</th>
                 <th>編輯</th>
                 <th>刪除</th>
               </tr>
