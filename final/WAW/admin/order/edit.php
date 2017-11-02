@@ -2,7 +2,7 @@
 require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
-  $sql= "UPDATE  order SET
+  $sql= "UPDATE  `order` SET
 						            status= :status,
                         address= :address,
                         updatedDate= :updatedDate,
@@ -10,7 +10,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
                         WHERE orderID= :orderID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":status", $_POST['status'], PDO::PARAM_INT);
-  $sth ->bindParam(":address", $_POST['address'], PDO::PARAM_SUB);
+  $sth ->bindParam(":address", $_POST['address'], PDO::PARAM_STR);
   $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
   $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth ->bindParam(":orderID", $_POST['orderID'], PDO::PARAM_INT);
@@ -19,7 +19,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   header('Location: list.php?status='.$_POST['status']);
 }
 
-$sth = $db->query("SELECT * FROM order WHERE orderID=".$_GET['orderID']);
+$sth = $db->query("SELECT * FROM `order` WHERE orderID=".$_GET['orderID']);
 $order = $sth->fetch(PDO::FETCH_ASSOC);
  ?>
 
@@ -34,7 +34,7 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-5" contenteditable="true">訂單管理-<?php echo $order['title']; ?></h1>
+          <h1 class="display-5" contenteditable="true">訂單管理-<?php echo $order['orderNO']; ?></h1>
         </div>
       </div>
       <div class="row">
@@ -97,12 +97,10 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+                <div class="col-sm-12">
                   <label for="memberID" class="control-label">訂購人(帳號)：</label>
-                </div>
-                <div class="col-sm-10">
                   <?php
-                    $sth = $db->query("SELECT * FROM member WHERE membetID=".$order['memberID']);
+                    $sth = $db->query("SELECT * FROM member WHERE memberID=".$order['memberID']);
                     $member = $sth->fetch(PDO::FETCH_ASSOC);
                    ?>
                   <label for="memberID" class="control-label"><?php echo $member['account']; ?></label>
@@ -116,7 +114,7 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
                   <input type="text" name="address" value="<?php echo $order['address']; ?>">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group my-5">
               <div class="col-sm-10 col-sm-offset-2 text-right">
                 <input type="hidden" name="MM_update" value="UPDATE">
                 <input type="hidden" name="orderID" value="<?php echo $order['orderID']; ?>">
