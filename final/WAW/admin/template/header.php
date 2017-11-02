@@ -7,7 +7,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
   <script src="../../asset/js/validator.min.js"></script>
   <link rel="stylesheet" href="../../asset/js/jquery-ui/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="../../asset/js/jquery.js"></script>
   <script src="../../asset/js/jquery-ui/jquery-ui.js"></script>
   <link rel="stylesheet" href="../css/style.css">

@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 //delete data
 $sth = $db-> query("DELETE FROM industry WHERE industryID=".$_GET['industryID']);

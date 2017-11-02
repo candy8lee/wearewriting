@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 //delete proiduct pic
 $sth = $db->query("SELECT * FROM product WHERE productID=".$_GET['productID']);

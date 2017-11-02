@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   $sql= "UPDATE  news SET

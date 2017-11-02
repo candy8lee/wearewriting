@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 $limit = 10;//acts item 筆數限制
 if (isset($_GET["page"])) { $page_num  = $_GET["page"]; } else { $page_num=1; };//判斷網址上有沒有頁碼、沒有就預設第一頁

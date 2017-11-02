@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
   $sql= "INSERT INTO acts( start, happy_end, title, content, createdDate)

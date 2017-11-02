@@ -26,11 +26,11 @@
           <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" style="border: 0px;">訂單管理
           <span class="caret"></span></button>
           <ul class="dropdown-menu">
-                <li><a href="../customer_order/list.php?Status=0">待付款 / 新訂單</a></li>
-                <li><a href="../customer_order/list.php?Status=1">已付款 / 出貨中</a></li>
-                <li><a href="../customer_order/list.php?Status=2">已出貨 / 運送中</a></li>
-                <li><a href="../customer_order/list.php?Status=3">已送達 / 訂單完成</a></li>
-                <li><a href="../customer_order/list.php?Status=99">訂單取消</a></li>
+                <li><a href="../order/list.php?status=0">待付款 / 新訂單</a></li>
+                <li><a href="../order/list.php?status=1">已付款 / 出貨中</a></li>
+                <li><a href="../order/list.php?status=2">已出貨 / 運送中</a></li>
+                <li><a href="../order/list.php?status=3">已送達 / 訂單完成</a></li>
+                <li><a href="../order/list.php?status=99">訂單取消</a></li>
           </ul>
         </li>
         <li class="nav-item">

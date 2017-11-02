@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../connection/database.php');
+require_once('../asset/connection/database.php');
 if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 	$sth = $db -> query("SELECT * FROM users WHERE account='".$_POST['account']."' AND password='".$_POST['password']."'");
 	$user = $sth -> fetch(PDO::FETCH_ASSOC) ;
@@ -8,10 +8,9 @@ if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 			$_SESSION['account'] = $user['account'];
 			header('Location: news/list.php');
 	}else{
-			$msg = 'fail';
+			$msg = '帳號或密碼有誤，請重新輸入。';
 			header('Location: login.php?msg='.$msg);
 	}
-  print_r($_SESSION);
 }
  ?>
 <!DOCTYPE html>
@@ -29,26 +28,27 @@ if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 </head>
 <body>
 <div class="container">
-
+<form name="login-form" class="login-form" action="login.php" method="post">
 	<div id="login-box">
     <div id="glass"></div>
 		<div class="logo">
 			<img src="login.jpg" class="img img-responsive img-circle center-block"/>
 			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
 		</div><!-- /.logo -->
+		<?php if(isset($_GET['msg'])&& $_GET['msg'] != null){ ?>
+		<div class="text-center">
+			<strong><?php echo $_GET['msg']; ?></strong>
+		</div>
+		<?php } ?>
 		<div class="controls">
 			<input type="text" name="account" placeholder="account" class="form-control" />
 			<input type="text" name="password" placeholder="password" class="form-control" />
-			<button type="submit" name="submit" class="btn btn-default btn-block btn-custom">Login</button>
+			<button type="submit" name="submit" value="Login" class="btn btn-default btn-block btn-custom">Login</button>
       <input type="hidden" name="MM_login" value="LOGIN">
-      <?php if(isset($_GET['msg'])&& $_GET['msg'] != null){ ?>
-			<div class="alert alert-dange">
-				<strong><?php echo $_GET['msg']; ?></strong>
-			</div>
-		  <?php } ?>
 		</div><!-- /.controls -->
 	</div><!-- /#login-box -->
 </div><!-- /.container -->
+</form><!-- /.form -->
 <div id="particles-js"></div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 //delete upload logo
 $sth = $db->query("SELECT * FROM brand WHERE brandID=".$_GET['brandID']);

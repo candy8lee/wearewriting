@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 $sth = $db->query("SELECT * FROM product_category ");
 $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);

@@ -1,4 +1,5 @@
 <?php
+require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 $sth = $db->query("SELECT * FROM product_subcategory WHERE subcategoryID=".$_GET['subID']);
 $product_subcategory = $sth->fetch(PDO::FETCH_ASSOC);
