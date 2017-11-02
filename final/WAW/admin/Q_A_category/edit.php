@@ -3,10 +3,14 @@ require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   $sql= "UPDATE q_a_category SET
-                                 category= :category
+                                 category= :category,
+                                 updatedDate= :updatedDate,
+                                 author= :author
                                  WHERE categoryID= :categoryID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":category", $_POST['category'], PDO::PARAM_STR);
+  $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
+  $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth ->bindParam(":categoryID", $_POST['categoryID'], PDO::PARAM_INT);
   $sth -> execute();
 
@@ -52,6 +56,8 @@ $name = $sth->fetch(PDO::FETCH_ASSOC);
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="categoryID" value="<?php echo $name['categoryID']; ?>">
 				  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>

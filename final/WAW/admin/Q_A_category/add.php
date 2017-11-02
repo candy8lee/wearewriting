@@ -4,11 +4,12 @@ require_once('../../asset/connection/database.php');
 if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
 
-  $sql= "INSERT INTO q_a_category( category, createdDate)
-                    VALUES ( :category, :createdDate)";
+  $sql= "INSERT INTO q_a_category( category, createdDate, author)
+                    VALUES ( :category, :createdDate, :author)";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":category", $_POST['category'], PDO::PARAM_STR);
   $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
+  $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth -> execute();
 
   header('Location: list.php');
@@ -54,6 +55,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_insert" value="INSERT">
+                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
                   <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>

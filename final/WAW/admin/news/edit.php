@@ -6,13 +6,15 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
                         publishedDate= :publishedDate,
                         title= :title,
                         content= :content,
-                        updatedDate= :updatedDate
+                        updatedDate= :updatedDate,
+                        author= :author
                         WHERE newsID= :newsID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":publishedDate", $_POST['publishedDate'], PDO::PARAM_STR);
   $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
   $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
+  $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth ->bindParam(":newsID", $_POST['newsID'], PDO::PARAM_INT);
   $sth -> execute();
 
@@ -81,6 +83,7 @@ $news = $sth->fetch(PDO::FETCH_ASSOC);
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
+                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="newsID" value="<?php echo $news['newsID']; ?>">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
               <a class="btn btn-outline-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>

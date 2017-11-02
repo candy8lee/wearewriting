@@ -7,7 +7,8 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
                         happy_end= :happy_end,
                         title= :title,
                         content= :content,
-                        updatedDate= :updatedDate
+                        updatedDate= :updatedDate,
+                        author= :author
                         WHERE actID= :actID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":start", $_POST['start'], PDO::PARAM_STR);
@@ -15,6 +16,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
   $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
+  $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth ->bindParam(":actID", $_POST['actID'], PDO::PARAM_INT);
   $sth -> execute();
 
@@ -102,6 +104,7 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
+                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="actID" value="<?php echo $acts['actID']; ?>">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
               <a class="btn btn-outline-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
