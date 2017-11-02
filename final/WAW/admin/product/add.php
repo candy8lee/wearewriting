@@ -191,7 +191,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
               <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_insert" value="INSERT">
-                  <input type="hidden" name="author" value="admin">
+                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="cateID" value="<?php echo $_GET['cateID']; ?>">
                   <input type="hidden" name="subID" value="<?php echo $_GET['subID']; ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">

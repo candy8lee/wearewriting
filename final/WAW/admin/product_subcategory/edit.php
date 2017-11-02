@@ -96,7 +96,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <div class="col-sm-10 col-sm-offset-2 text-right">
                     <input type="hidden" name="MM_update" value="UPDATE">
                     <input type="hidden" name="subcategoryID" value="<?php echo $product_subcategory['subcategoryID']; ?>">
-                    <input type="hidden" name="author" value="admin">
+                    <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                     <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
                     <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                     <button type="submit" class="btn btn-warning">送出</button>

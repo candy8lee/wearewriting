@@ -93,7 +93,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
-				  <input type="hidden" name="author" value="admin">
+				  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
 				  <input type="hidden" name="replyID" value="<?php echo $_GET['replyID']; ?>">
                   <a class="btn btn-warning float-left" href="list.php?cateID=<?php echo $_GET['cateID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>

@@ -99,7 +99,7 @@ $industry = $sth->fetch(PDO::FETCH_ASSOC);
                   <input type="hidden" name="industryID" value="<?php echo
                   $industry['industryID']; ?>">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
-				          <input type="hidden" name="author" value="admin">
+				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
