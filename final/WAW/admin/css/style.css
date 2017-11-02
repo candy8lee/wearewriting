@@ -12,3 +12,6 @@
 .breadcrumb{
   background: rgb(255, 238, 205);
 }
+.table_sub{
+  vertical-align: middle !important;
+}
