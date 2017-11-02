@@ -20,7 +20,7 @@
           <a class="nav-link" href="../news/list.php">消息管理</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../product_category/list.php">產品管理</a>
+          <a class="nav-link" href="../product_category/list.php">商品管理</a>
         </li>
         <li class="dropdown">
           <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" style="border: 0px;">訂單管理
