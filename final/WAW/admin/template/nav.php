@@ -33,8 +33,13 @@
                 <li><a href="../order/list.php?status=99">訂單取消</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../member/list.php">會員管理</a>
+        <li class="dropdown">
+          <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" style="border: 0px;">會員管理
+          <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="../member/list.php">帳號管理</a></li>
+            <li><a href="../member_question/list.php">客服管理</a></li>
+          </ul>
         </li>
       </ul>
       <a href="../template/logout.php" class="btn navbar-btn btn-warning ml-2 text-white"><i class="fa d-inline fa-lg fa-user-circle-o"></i> Sign out</a>
