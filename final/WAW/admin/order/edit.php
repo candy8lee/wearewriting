@@ -2,7 +2,7 @@
 require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
-  $sql= "UPDATE  `order` SET
+  $sql= "UPDATE  customer_order SET
 						            status= :status,
                         address= :address,
                         updatedDate= :updatedDate,
@@ -19,7 +19,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   header('Location: list.php?status='.$_POST['status']);
 }
 
-$sth = $db->query("SELECT * FROM `order` WHERE orderID=".$_GET['orderID']);
+$sth = $db->query("SELECT * FROM customer_order WHERE orderID=".$_GET['orderID']);
 $order = $sth->fetch(PDO::FETCH_ASSOC);
  ?>
 
@@ -73,7 +73,7 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
                   <label for="createdDate" class="control-label">訂單日期：</label>
                 </div>
                 <div class="col-sm-10">
-                  <label for="createdDate" class="control-label"><?php echo $order['orderNO']; ?></label>
+                  <label for="createdDate" class="control-label"><?php echo $order['createdDate']; ?></label>
               </div>
             </div>
             <div class="form-group">

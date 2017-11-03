@@ -4,7 +4,7 @@ require_once('../../asset/connection/database.php');
 $limit = 5;//order item 筆數限制
 if (isset($_GET["page"])) { $page_num  = $_GET["page"]; } else { $page_num=1; };//判斷網址上有沒有頁碼、沒有就預設第一頁
 $start_from = ($page_num-1) * $limit;//order item 從第幾筆開始//ex:(第二頁-1)*limit->[5]開始數五個出來//[0]開始
-$sql = "SELECT * FROM `order` WHERE status =".$_GET['status']." ORDER BY createdDate DESC LIMIT ".$start_from.",".$limit;// LIMIT num,num
+$sql = "SELECT * FROM customer_order WHERE status =".$_GET['status']." ORDER BY createdDate DESC LIMIT ".$start_from.",".$limit;// LIMIT num,num
 $sth = $db->query($sql);
 $order = $sth->fetchALL(PDO::FETCH_ASSOC);
 $totalRows = count($order);
@@ -70,7 +70,7 @@ $totalRows = count($order);
                 <td><?php echo $row['phone']; ?></td>
 				        <td><?php echo $row['address']; ?></td>
                 <td><a href="edit.php?orderID=<?php echo $row['orderID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-                <td><a href="../order_details/list.php?orderID=<?php echo $row['orderID']; ?>" class="btn btn-danger" role="button"><i class="fa fa-book" aria-hidden="true"></i></a></td>
+                <td><a href="../order_details/list.php?orderID=<?php echo $row['orderID']; ?>&status=<?php echo $_GET['status']; ?>&page=<?php echo $page_num; ?>" class="btn btn-danger" role="button"><i class="fa fa-book" aria-hidden="true"></i></a></td>
               </tr>
             <?php } ?>
             </tbody>
@@ -81,7 +81,7 @@ $totalRows = count($order);
         <div class="col-md-12">
           <?php
           if($totalRows > 0){
-                $sth = $db->query("SELECT * FROM `order` WHERE status =".$_GET['status']." ORDER BY createdDate DESC");
+                $sth = $db->query("SELECT * FROM customer_order WHERE status =".$_GET['status']." ORDER BY createdDate DESC");
                 $data_count = count($sth->fetchAll(PDO::FETCH_ASSOC));
                 $totalpages = ceil($data_count / $limit );//四捨五入
           ?>
