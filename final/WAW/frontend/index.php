@@ -1,11 +1,12 @@
 <html>
 <head>
 <?php require_once('template/header.php'); ?>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <?php require_once('template/nav.php'); ?>
-    <div class="py-5">
+  <div class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -46,7 +47,9 @@
           </ul>
         </div>
       </div>
+	</div>
   </div>
+<?php include_once("template/footer.php"); ?>
 </body>
 
 </html>
