@@ -18,8 +18,11 @@ else{
 $totalRows = count($product);
 
 
-$sth = $db->query("SELECT * FROM product_subcategory");
+$sth = $db->query("SELECT * FROM product_subcategory WHERE categoryID=".$_GET['cateID']);
 $subcategory = $sth->fetchALL(PDO::FETCH_ASSOC);
+
+$sth = $db->query("SELECT category FROM product_category WHERE categoryID=".$_GET['cateID']);
+$category = $sth->fetch(PDO::FETCH_ASSOC);
 
  ?>
 <html>
@@ -34,14 +37,30 @@ $subcategory = $sth->fetchALL(PDO::FETCH_ASSOC);
       <div class="row">
         <div class="col-md-12">
           <h1 class="display-4 my-4" contenteditable="true">商品管理</h1>
-          <a class="btn btn-warning my-2" href="add.php?cateID=<?php echo $_GET['cateID'] ?><?php if(isset($_GET['subID'])) echo "&subID=".$_GET['subID']; ?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增一筆</a>
+          <a class="btn btn-warning my-2" href="add.php?cateID=<?php echo $_GET['cateID'] ?><?php if(isset($_GET['subID'])) echo "&subID=".$_GET['subID']; ?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增商品</a>
+          <?php if(isset($_GET['subID'])) {?>
+          <a class="btn btn-warning my-2 float-right ml-3" href="../product_category/list.php">返回商品目錄</a>
+            <a class="btn btn-warning my-2 float-right" href="list.php?cateID=<?php echo $_GET['cateID'] ?>">返回上一層目錄</a>
+          <?php } else {?>
+            <a class="btn btn-warning my-2 float-right" href="../product_category/list.php">返回商品目錄</a>
+          <?php } ?>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <ul class="breadcrumb my-3" style="margin-bottom:0px;margin-top:0px">
             <li class="breadcrumb-item"><a href="../product_category/list.php">主控台</a></li>
-            <li class="breadcrumb-item active">商品管理</li>
+            <li class="breadcrumb-item">商品管理</li>
+            <li class="breadcrumb-item active"><?php echo $category['category']; ?></li>
+            <?php if(isset($_GET['subID'])){ ?>
+              <li class="breadcrumb-item active">
+              <?php
+                $sth = $db->query("SELECT subcategory FROM product_subcategory WHERE subcategoryID=".$_GET['subID']);
+                $subcate = $sth->fetch(PDO::FETCH_ASSOC);
+                echo $subcate['subcategory'];
+              ?>
+              </li>
+            <?php } ?>
           </ul>
 		    </div>
 	  </div>
@@ -62,7 +81,6 @@ $subcategory = $sth->fetchALL(PDO::FETCH_ASSOC);
                 <td rowspan="100%">
                   <div class="col-md-12 text-center my-3">
                     子分類select。<br>
-                      <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>">此分類全部商品</a><br>
                     <?php foreach($subcategory as $row){ ?>
                       <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?></a><br>
                     <?php } ?>
@@ -84,7 +102,7 @@ $subcategory = $sth->fetchALL(PDO::FETCH_ASSOC);
               <tr class="text-center">
                 <td><?php echo $row['picture']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td><a href="edit.php?productID=<?php echo $row['productID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+                <td><a href="edit.php?productID=<?php echo $row['productID']; ?>&page=<?php echo $page_num; ?>&cateID=<?php echo $row['categoryID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                 <td><a href="delet.php?productID=<?php echo $row['productID']; ?>&cateID=<?php echo $_GET['cateID'] ?><?php if(isset($_GET['subID'])) echo "&subID=".$_GET['subID']; ?>" class="btn btn-warning" role="button" onclick="if(!confirm('是某要刪除此筆商品資料？')){return false;};"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
               </tr>
             <?php } ?>

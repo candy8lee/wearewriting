@@ -16,8 +16,8 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-5" contenteditable="true">產品分類管理</h1>
-          <a class="btn btn-warning my-2" href="add.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增一筆</a>
+          <h1 class="display-5" contenteditable="true">商品分類管理</h1>
+          <a class="btn btn-warning my-2" href="add.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增分類</a>
         </div>
       </div>
       <div class="row">
@@ -26,7 +26,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
             <li class="breadcrumb-item">
               <a href="list.php">主控台</a>
             </li>
-            <li class="breadcrumb-item active">產品分類管理</li>
+            <li class="breadcrumb-item active">商品分類管理</li>
           </ul>
           <table class="table  text-center">
             <thead>
