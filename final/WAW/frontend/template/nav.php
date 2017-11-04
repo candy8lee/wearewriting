@@ -10,17 +10,12 @@
 			<li><a href="#">清空購物車</a></li>
 		  </ul>
 		  </li>
-		  <li class="dropdown">
-		  <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">會員專區<span class="caret"></span></a>
-		  <ul class="dropdown-menu">
-			<li><a href="#">會員資料</a></li>
-			<li><a href="#">客服提問</a></li>
-			<li><a href="#">留言板</a></li>
-		  </ul>
-		  </li>
-		  <li><a href="#">訂單紀錄</a></li>
-		  <li class="active"><a href="#">Sign out</a></li>
-		</ul>
+
+<?php// if(isset($_SESSION['account'])) include_once("nav_login.php"); 	 
+	//	else{?>
+			<li><a href="#">申請會員</a></li>
+			<li class="active"><a href="#">&nbspLogin</a></li>
+<?php//}?>
     </nav>
   </div>
 </div>
@@ -34,9 +29,19 @@
     <nav>
 		<ul class="nav nav-tabs pull-right">
 		  <li><a href="#">首頁</a></li>
-		  <li><a href="#">關於</a></li>
 		  <li class="dropdown">
-		  <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">商品<span class="caret"></span></a>
+		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">關於<span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+			<li><a href="#">網站地圖</a></li>
+			<li><a href="#">聯絡資訊</a></li>
+			<li><a href="#">好站分享</a></li>
+			<li class="divider"></li>
+			<li><a href="#">活動參與</a></li>
+			<li><a href="#">Q & A</a></li>
+		  </ul>
+		  </li>
+		  <li class="dropdown">
+		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">商品<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
 			<li><a href="#">鋼筆</a></li>
 			<li><a href="#">墨水</a></li>
@@ -48,10 +53,11 @@
 		  </ul>
 		  </li>
 		  <li class="dropdown">
-		  <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">品牌介紹<span class="caret"></span></a>
+		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">品牌<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
 			<li><a href="#">詳細介紹</a></li>
 			<li><a href="#">品牌地圖</a></li>
+			<li class="divider"></li>
 			<li><a href="#">相關產業</a></li>
 		  </ul>
 		  </li>

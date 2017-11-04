@@ -4,18 +4,39 @@
 #login{
 	margin-bottom:1px;
 }
+#login nav li a{
+	padding: 5px 10px;
+}
 #LOGO{
 	height:100%;
 	filter: invert(100%);
 }
 #nav{
-	margin-top:100px;
+	margin-top:90px;
 }
 #nav nav li a{
-	padding: 5px 55px;
+	padding: 5px 45px;
+	font-size:120%;
+}
+#nav nav li a:hover{
+	background:#ffdea0;
+	border:0;
+	font-weight:blod;
+}
+.dn_header:focus{
+	background:#ffdea0 !important;	
+}
+#nav .dropdown-menu{
+	padding: 1px 1px;
+	background:rgba(255, 197, 147,.7);
 }
 #footer{
 	clear: both;
 	height:200px;
 	background: #e9c379;
+	display: flex;
+    justify-content: space-around;
+}
+@media only screen and (min-width: 480px){
+	/*--phone style--*/
 }
