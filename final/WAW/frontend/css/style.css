@@ -1,42 +1,111 @@
 .row{
 	margin:0;
 }
+.nav-tabs { 
+   border-bottom: none;
+}
+/*上方NAV*/
 #login{
-	margin-bottom:1px;
+	padding-top:10px;
 }
 #login nav li a{
-	padding: 5px 10px;
+	padding: 10px 10px;
+	color:#44558F;
 }
+#login nav li a:hover{
+	border-color: transparent;
+	background: #FFE495;
+	padding-bottom:9px;/*修正當hover時會凸出來*/
+}
+/*點擊後維持的設定-預設是灰色*/
+.dn_header:focus{
+	background:#FFE495 !important;	
+}
+/*點擊後下方出現的menu；rgba的a是透明度*/
+#login .dropdown-menu{
+	padding: 1px 1px;
+	background: #FFC97B;
+}
+#login .dropdown-menu li:hover{
+	border-style: inset;
+	border-width: 2px;
+	margin-top:-2px;
+	margin-bottom:-2px;
+}
+/*排版測試*/
 #LOGO{
 	height:100%;
 	filter: invert(100%);
 }
+/*下方NAV*/
+#MenuIcon{
+	display:none;
+}
 #nav{
 	margin-top:90px;
 }
+/*header*/
 #nav nav li a{
 	padding: 5px 45px;
 	font-size:120%;
+	color:#44558F;
 }
 #nav nav li a:hover{
-	background:#ffdea0;
-	border:0;
-	font-weight:blod;
+	background:#FFE495;
+	border-color:transparent;
+	padding-bottom:4px;/*修正當hover時會凸出來*/
 }
+/*點擊後維持的設定-預設是灰色*/
 .dn_header:focus{
-	background:#ffdea0 !important;	
+	background:#FFE495 !important;	
 }
+/*點擊後下方出現的menu；rgba的a是透明度*/
 #nav .dropdown-menu{
 	padding: 1px 1px;
-	background:rgba(255, 197, 147,.7);
+	background:rgba(232, 223, 197,.4);
+}
+#nav .dropdown-menu li:hover{
+	border-style: inset;
+	border-width: 2px;
+	border-color: #f7f2e6;
+	margin:-2px -2px;/*矯正border凸出的margin*/
 }
 #footer{
 	clear: both;
 	height:200px;
-	background: #e9c379;
+	background: #FFC97B;
 	display: flex;
     justify-content: space-around;
 }
-@media only screen and (min-width: 480px){
+@media only screen and (max-width: 768px){
 	/*--phone style--*/
+	#login{
+		background:rgba(68, 85, 143,.7);
+	}
+	#login nav li a{
+		font-size: 120%;
+	}
+	#MenuIcon{
+		display:block;
+		margin-top: -135px;
+		margin-bottom: 5px;
+		color: white;
+	}
+	#nav nav{
+		display:none;
+	}
+	#nav nav ul{
+		margin-top:15px;
+	}
+	#nav nav ul ul{
+		margin:0px;
+	}
+	#nav nav li a{
+		padding:5px 10px;
+		font-weight:blod;
+		font-size:150%;
+	}
+	#nav .dropdown-menu{
+		background:#fff1c9;
+	}
 }

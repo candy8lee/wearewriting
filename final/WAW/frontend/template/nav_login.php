@@ -7,4 +7,4 @@
 		  </ul>
 		  </li>
 		  <li><a href="#">訂單紀錄</a></li>
-		  <li class="active"><a href="#">Sign out</a></li>
+		  <li><a href="#"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Sign out</a></li>

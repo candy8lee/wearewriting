@@ -2,6 +2,14 @@
 <head>
 <?php require_once('template/header.php'); ?>
 <link rel="stylesheet" href="css/style.css">
+
+<script>
+  $(function(){
+    $('#MenuIcon').click(function(){
+     $('#nav nav').slideToggle();
+    });
+  });
+</script>
 </head>
 
 <body>

@@ -14,18 +14,19 @@
 <?php// if(isset($_SESSION['account'])) include_once("nav_login.php"); 	 
 	//	else{?>
 			<li><a href="#">申請會員</a></li>
-			<li class="active"><a href="#">&nbspLogin</a></li>
+			<li><a href="#"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbspSign in</a></li>
 <?php//}?>
     </nav>
   </div>
 </div>
-<div class="row my-5" style="background:#e9c379;">
+<div class="row my-5" style="background:#FFC97B;">
   <div class="col-md-4">
     <div class="text-center" style="height:120px;">
       <img id="logo" src="images/logo.png"<img>
     </div>
   </div>
   <div id="nav" class="col-md-8">
+	<div id="MenuIcon" class="text-right"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></div>
     <nav>
 		<ul class="nav nav-tabs pull-right">
 		  <li><a href="#">首頁</a></li>
