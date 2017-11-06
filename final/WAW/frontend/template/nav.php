@@ -25,8 +25,8 @@
       <img id="logo" src="images/logo.png"</img>
     </div>
   </div>
+  <div id="MenuIcon" class="text-left"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></div>
   <div id="nav" class="col-md-8">
-	<div id="MenuIcon" class="text-right"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></div>
     <nav>
 		<ul class="nav nav-tabs pull-right">
 		  <li><a href="#" class="dn_header">首頁</a></li>

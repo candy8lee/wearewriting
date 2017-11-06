@@ -9,7 +9,7 @@
 <script>
   $(function(){
     $('#MenuIcon').click(function(){
-     $('#nav nav').slideToggle();
+     $('#nav').slideToggle();
     });
   });
 </script>

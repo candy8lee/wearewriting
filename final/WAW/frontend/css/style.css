@@ -6,6 +6,10 @@ body{
 	background-image: url('../images/bg.jpg');
 	background-repeat: repeat;
 }
+a:hover{
+	color:#003684;
+	text-decoration:none;
+}
 .row{
 	margin:0;
 }
@@ -18,7 +22,7 @@ body{
 }
 #login nav li a{
 	padding: 10px 25px;
-	color:##003684;
+	color:#003684;
 }
 #login nav li a:hover{
 	border-color: transparent;
@@ -52,10 +56,12 @@ body{
 #MenuIcon{
 	display:none;
 }
+/*header*/
 #nav{
 	margin-top:90px;
+	display: flex;
+	justify-content: space-around;
 }
-/*header*/
 #nav nav li a{
 	padding: 5px 45px;
 	font-size:120%;
@@ -91,15 +97,45 @@ h1{
 	font-size: 100px;;
 	font-family: 'Viner Hand ITC Regular';
 }
+h2{
+	font-size: 50px;;
+	font-family: 'Viner Hand ITC Regular';
+}
+#postscript{
+	font-size: 15px;
+}
+#contact{
+	width:100%;
+	background: #FFE495;
+	padding:30px 0px;
+	color:#003684;
+	text-align:right;
+	margin:150px 0;
+}
+#contact input, textarea {
+	width:100%;
+}
+
+#contact a{
+	font-weight:blod;
+	padding:0px 5px;
+}
+form div{
+	margin:10px 0;
+}
+#tinymce{
+	display:none;
+}
 #footer{
 	clear: both;
 	height:auto;
 	background: #FFC97B;
 	padding-top: 20px;
+	padding-bottom: 20px;
 	color: #003684;
 	width: 100%;
 	display: flex;
-  justify-content: space-around;
+	justify-content: space-around;
 }
 #footer ul{
 	width: 200px !important;
@@ -144,15 +180,18 @@ margin-bottom: 50px;
 		font-size: 120%;
 		padding: 10px 7px;
 	}
+	#LOGO{
+	}
 	#MenuIcon{
 		display:block;
-		margin-top: -135px;
-		margin-bottom: 5px;
 		color: white;
+		margin-left:15px;
+		margin-bottom:20px;
 	}
-	#nav nav{
+	#nav{
 		display:none;
-		margin-top:15px;
+		float:right;
+		margin-top:-55px;
 	}
 	#nav nav ul ul{
 		margin:0px;
@@ -160,7 +199,7 @@ margin-bottom: 50px;
 	#nav nav li a{
 		padding:5px 10px;
 		font-weight:blod;
-		font-size:120%;
+		font-size:150%;
 	}
 	#nav .dropdown-menu{
 		background:#fff1c9;
@@ -168,13 +207,16 @@ margin-bottom: 50px;
 	h1{
 		font-size: 50px;
 	}
+	#footer_L{
+		padding-right: 15px;
+	}
 	#footer_R{
+		padding-left:15px;
 		margin-top: 20px;
-		margin-left: -15px;
 		margin-bottom: 15px;
 	}
 	#copyright{
 		background: none;
-		color: #424242;
+		color: silver;
 	}
 }
