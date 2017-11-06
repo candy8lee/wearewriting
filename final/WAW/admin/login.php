@@ -42,7 +42,7 @@ if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 		<?php } ?>
 		<div class="controls">
 			<input type="text" name="account" placeholder="account" class="form-control" />
-			<input type="text" name="password" placeholder="password" class="form-control" />
+			<input type="password" name="password" placeholder="password" class="form-control" />
 			<button type="submit" name="submit" value="Login" class="btn btn-default btn-block btn-custom">Login</button>
       <input type="hidden" name="MM_login" value="LOGIN">
 		</div><!-- /.controls -->

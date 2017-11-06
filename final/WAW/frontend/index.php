@@ -18,7 +18,7 @@
 <body>
 <?php require_once('template/nav.php'); ?>
 <div class="">
-    <h1 class="text-center">We Are Writing</h1>
+    <h1 class="text-center"><span>We</span> <span>Are</span> <span>Writing</span></h1>
 </div>
 <div class="slider-container">
   <div class="slider-control left inactive"></div>
@@ -83,6 +83,7 @@
     </div>
   </div>
 </div>
+<?php include_once("template/contect.php"); ?>
 <?php include_once("template/footer.php"); ?>
 <?php include_once("template/copyright.php"); ?>
 </body>

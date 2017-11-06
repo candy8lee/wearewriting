@@ -29,7 +29,7 @@
 	<div id="MenuIcon" class="text-right"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></div>
     <nav>
 		<ul class="nav nav-tabs pull-right">
-		  <li><a href="#">首頁</a></li>
+		  <li><a href="#" class="dn_header">首頁</a></li>
 		  <li class="dropdown">
 		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">關於<span class="caret"></span></a>
 		  <ul class="dropdown-menu">

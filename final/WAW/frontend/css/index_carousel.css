@@ -4,13 +4,10 @@
   padding: 0;
 }
 
-html, body {
-  font-size: 62.5%;
-  height: 100%;
-  overflow: hidden;
+body{
+  width: 100%;
+  overflow-x: hidden;
 }
-
-
 
 svg {
   display: block;
@@ -25,6 +22,7 @@ svg {
       -ms-user-select: none;
           user-select: none;
   cursor: all-scroll;
+  margin-bottom: 100px;
 }
 
 .slider-control {
