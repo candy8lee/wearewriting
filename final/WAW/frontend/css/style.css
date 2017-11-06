@@ -1,7 +1,11 @@
+/*配色紀錄
+http://colorhunt.co/c/105104
+http://encycolorpedia.cn/ffc97b
+*/
 .row{
 	margin:0;
 }
-.nav-tabs { 
+.nav-tabs {
    border-bottom: none;
 }
 /*上方NAV*/
@@ -9,8 +13,8 @@
 	padding-top:10px;
 }
 #login nav li a{
-	padding: 10px 10px;
-	color:#44558F;
+	padding: 10px 25px;
+	color:##003684;
 }
 #login nav li a:hover{
 	border-color: transparent;
@@ -19,12 +23,15 @@
 }
 /*點擊後維持的設定-預設是灰色*/
 .dn_header:focus{
-	background:#FFE495 !important;	
+	background:#FFE495 !important;
 }
 /*點擊後下方出現的menu；rgba的a是透明度*/
 #login .dropdown-menu{
 	padding: 1px 1px;
 	background: #FFC97B;
+}
+#login .dropdown-menu li a{
+	color: #1958b4;
 }
 #login .dropdown-menu li:hover{
 	border-style: inset;
@@ -48,7 +55,7 @@
 #nav nav li a{
 	padding: 5px 45px;
 	font-size:120%;
-	color:#44558F;
+	color:##003684;
 }
 #nav nav li a:hover{
 	background:#FFE495;
@@ -57,12 +64,15 @@
 }
 /*點擊後維持的設定-預設是灰色*/
 .dn_header:focus{
-	background:#FFE495 !important;	
+	background:#FFE495 !important;
 }
 /*點擊後下方出現的menu；rgba的a是透明度*/
 #nav .dropdown-menu{
 	padding: 1px 1px;
-	background:rgba(232, 223, 197,.4);
+	background:rgba(232, 223, 197,.7);
+}
+#nav .dropdown-menu li a{
+	color: #003684;
 }
 #nav .dropdown-menu li:hover{
 	border-style: inset;
@@ -72,11 +82,48 @@
 }
 #footer{
 	clear: both;
-	height:200px;
+	height:auto;
 	background: #FFC97B;
+	padding-top: 20px;
+	color: #003684;
+	width: 100%;
 	display: flex;
-    justify-content: space-around;
+  justify-content: space-around;
 }
+#footer ul{
+	width: 200px !important;
+	padding-left: 0;
+	margin-right: 50px;
+}
+#footer ul li{
+	list-style: none;
+}
+#footer a{
+	color: #0043a5;
+}
+#footer a:hover{
+	color: #bdbdbd;
+	text-decoration: none;
+}
+#footer_L{
+	padding-right: 50px;
+}
+
+#footer_R{
+	padding-left: 50px;
+}
+#copyright{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bdbdbd+0,7db9e8+100&1+0,0+100 */
+background: -moz-radial-gradient(center, ellipse cover, rgba(189,189,189,.5) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, rgba(189,189,189,.5) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, rgba(189,189,189,.5) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bdbdbd', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+color: darkgray;
+}
+
+
+
+
 @media only screen and (max-width: 768px){
 	/*--phone style--*/
 	#login{
@@ -84,6 +131,7 @@
 	}
 	#login nav li a{
 		font-size: 120%;
+		padding: 10px 7px;
 	}
 	#MenuIcon{
 		display:block;
@@ -93,8 +141,6 @@
 	}
 	#nav nav{
 		display:none;
-	}
-	#nav nav ul{
 		margin-top:15px;
 	}
 	#nav nav ul ul{
@@ -103,9 +149,18 @@
 	#nav nav li a{
 		padding:5px 10px;
 		font-weight:blod;
-		font-size:150%;
+		font-size:120%;
 	}
 	#nav .dropdown-menu{
 		background:#fff1c9;
+	}
+	#footer_R{
+		margin-top: 20px;
+		margin-left: -15px;
+		margin-bottom: 15px;
+	}
+	#copyright{
+		background: none;
+		color: #424242;
 	}
 }

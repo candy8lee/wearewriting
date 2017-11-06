@@ -55,9 +55,10 @@
           </ul>
         </div>
       </div>
-	</div>
-  </div>
+	   </div>
+   </div>
 <?php include_once("template/footer.php"); ?>
+<?php include_once("template/copyright.php"); ?>
 </body>
 
 </html>
