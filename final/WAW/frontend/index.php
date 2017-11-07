@@ -83,7 +83,7 @@
     </div>
   </div>
 </div>
-<?php include_once("template/contect.php"); ?>
+<?php include_once("template/contact.php"); ?>
 <?php include_once("template/footer.php"); ?>
 <?php include_once("template/copyright.php"); ?>
 </body>

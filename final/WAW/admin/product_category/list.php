@@ -18,6 +18,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <h1 class="display-5" contenteditable="true">商品分類管理</h1>
           <a class="btn btn-warning my-2" href="add.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增分類</a>
+          <a class="btn btn-warning my-2" href="../product_subcategory/list.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 子分類列表</a>
         </div>
       </div>
       <div class="row">

@@ -1,3 +1,10 @@
+<script>
+  $(function(){
+    $('#MenuIcon').click(function(){
+     $('#nav nav').slideToggle();
+    });
+  });
+</script>
 <div class="row">
   <div id="login" class="col-md-12">
     <nav>
@@ -44,19 +51,18 @@
 		  <li class="dropdown">
 		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">商品<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-			<li><a href="#">鋼筆</a></li>
-			<li><a href="#">墨水</a></li>
-			<li><a href="#">筆記本</a></li>
-			<li><a href="#">信紙/信封</a></li>
-			<li><a href="#">原子筆</a></li>
-			<li><a href="#">鉛筆</a></li>
-			<li><a href="#">套裝</a></li>
+      <?php
+        $sth = $db->query("SELECT category FROM product_category");
+        $category = $sth->fetchALL(PDO::FETCH_ASSOC);
+        foreach($category as $row){ ?>
+          <li><a href="#"><?php echo $row['category']; ?></a></li>
+        <?php } ?>
 		  </ul>
 		  </li>
 		  <li class="dropdown">
 		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">品牌<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-			<li><a href="#">詳細介紹</a></li>
+			<li><a href="brand_introduction.php">詳細介紹</a></li>
 			<li><a href="#">品牌地圖</a></li>
 			<li class="divider"></li>
 			<li><a href="#">相關產業</a></li>

@@ -20,6 +20,7 @@ $product_subcategory = $sth->fetchALL(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <h1 class="display-5" contenteditable="true">產品子分類管理</h1>
           <a class="btn btn-warning my-2" href="add.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 新增一筆</a>
+          <a class="btn btn-warning my-2 float-right" href="../product_category/list.php"><i class="fa fa-plus-square-o" aria-hidden="true"></i> 返回商品分類</a>
         </div>
       </div>
       <div class="row">

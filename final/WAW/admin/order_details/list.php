@@ -57,24 +57,24 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
           <thead>
             <tr>
               <th>商品名稱</th>
-              <th>備註</th>
               <th>單價</th>
               <th>數量</th>
               <th>小計</th>
+              <th>備註</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($order_details as $row) { ?>
             <tr>
               <?php
-                $sth = $db->query("SELECT * FROM product WHERE productID =".$_row['productID']);
-                $product = $sth->fetchL(PDO::FETCH_ASSOC);
+                $sth = $db->query("SELECT * FROM product WHERE productID =".$row['productID']);
+                $product = $sth->fetch(PDO::FETCH_ASSOC);
                ?>
               <td><?php echo $product['name']; ?></td>
-              <td><?php echo $row['postscript']; ?></td>
               <td><?php echo $row['price']; ?></td>
               <td><?php echo $row['quantity']; ?></td>
               <td><?php echo $row['quantity']*$row['price']; ?></td>
+              <td><?php echo $row['postscript']; ?></td>
             </tr>
           <?php }?>
           </tbody>

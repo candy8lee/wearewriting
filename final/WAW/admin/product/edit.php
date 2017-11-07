@@ -74,6 +74,14 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<script>
+$( function() {
+  $( "#accordion" ).accordion({
+    collapsible: true,
+    active:false
+  });
+} );
+</script>
 </head>
 
 <body>
@@ -95,6 +103,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="edit.php"  data-toggle="validator" enctype="multipart/form-data">
             <div class="form-group my-5">
+              <div class="row">
                 <div class="col-sm-12">
                   <label for="brandID" class="control-label">品牌：</label>
         					<select name="brandID" style="width: 200px;">
@@ -125,86 +134,119 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <?php } ?>
         					</select>
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-12 my-3 text-center">
                   <img src="../../upload/product/<?php echo $product['picture'] ?>" width="300px">
                   <?php for($i =2; $i <4; $i++){
                           if(isset($product['picture'.$i])){?>
-                            <img src="../../upload/product/<?php echo $product['picture'.$i] ?>" width="150px" class="align-bottom">
+                            <img src="../../upload/product/<?php echo $product['picture'.$i] ?>" width="150px" class="align-bottom mx-3">
                           <?php } ?>
                   <?php } ?>
                 </div>
-                <div class="col-sm-2">
-                  <label for="picture" class="control-label">商品圖片：</label>
+                <div class="col-sm-12 text-right">
+                  <p>*圖片說明：商品圖片一會是產品列表的主要圖片；二 - 四是輔助圖片，可選擇上傳</p>
+                  <p>*上傳順序會與圖片排列相關。</p>
+                </div>
+                <div class="col-sm-2 my-3 text-right">
+                  <label for="picture" class="control-label">商品圖片一</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="file" class="form-control" id="picture" name="picture[]">
-                  <input type="file" class="form-control" id="picture" name="picture[]">
-                  <input type="file" class="form-control" id="picture" name="picture[]">
-                  <input type="file" class="form-control" id="picture" name="picture[]">
+                </div>
+                <div id="accordion" class="col-sm-12 text-right my-5">
+                  <h3>上傳更多商品圖片</h3>
+                  <div class="row">
+                  <?php $arr=["二", "三", "四"];
+                    for($i =0; $i <3; $i++){?>
+                    <div class="col-sm-2 my-3 text-right">
+                      <label for="picture" class="control-label">商品圖片<?php echo $arr[$i]; ?></label>
+                    </div>
+                    <div class="col-sm-10">
+                      <input type="file" class="form-control" id="picture" name="picture[]">
+                    </div>
+					        <?php } ?>
+                  </div>
+                </div>
+                <div>
                   <input type="hidden" name="picture1[]" value="<?php echo $product['picture'] ?>">
                   <input type="hidden" name="picture1[]" value="<?php echo $product['picture2'] ?>">
                   <input type="hidden" name="picture1[]" value="<?php echo $product['picture3'] ?>">
                   <input type="hidden" name="picture1[]" value="<?php echo $product['picture4'] ?>">
-
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2 text-right text-right">
                   <label for="name" class="control-label">商品名稱</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="<?php echo $product['name']; ?>" data-minlength="1" data-error="商品名稱至少一字元。" required>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2 text-right text-right">
                   <label for="price" class="control-label">價格</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="number" class="form-control" id="price" name="price" value="<?php echo $product['price']; ?>" data-error="請填寫價格。" required>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2  text-right">
                   <label class="control-label">保存期限</label>
                 </div>
                 <div class="col-sm-10">
-                  <label class="control-label">墨水無開封可永久保存，書寫用具使用得當無損毀也可永久保存。</label>
+                  <label class="control-label">*墨水無開封可永久保存，書寫用具使用得當無損毀也可永久保存。</label>
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2  text-right">
                   <label for="decription" class="control-label">描述</label>
                 </div>
                 <div class="col-sm-10">
                   <textarea class="form-control" id="decription" name="decription" data-error="請描述商品細節。" required><?php echo $product['decription']; ?></textarea>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
-                  <label for="store" class="control-label">更新庫存</label>
+              <div class="row">
+                <div class="col-sm-2 text-right">
+                  <label for="store" class="control-label">進貨數量</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="number" class="form-control" id="store" name="store" value="<?php echo $product['store']; ?>" data-minlength="1" data-error="若尚無庫存請填寫0。" required>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
-              <div class="form-group">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2 text-right text-right">
+                  <a class="btn btn-warning float-left" href="list.php?cateID=<?php echo $_GET['cateID']; ?><?php if(isset($_GET['subID'])) echo "&subID=".$_GET['subID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="productID" value="<?php echo $_GET['productID']; ?>">
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="cateID" value="<?php echo $_GET['cateID']; ?>">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
-                  <a class="btn btn-warning float-left" href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $_GET['subID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

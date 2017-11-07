@@ -50,7 +50,7 @@ $totalRows = count($acts);
                   $begin = strtotime($row['happy_end']);
                   $end = strtotime($row['start']);
                   $HowLong = ($begin - $end) / 86400;
-                  echo $HowLong;
+                  echo $HowLong+1;
                 ?>
                 </td>
                 <td width=30%><?php echo $row['start']; ?> ~ <?php echo $row['happy_end']; ?></td>

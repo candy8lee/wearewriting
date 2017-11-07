@@ -4,29 +4,29 @@
       <div class="row">
         <div class="col-sm-4 col-xs-6">
       	    <ul><h4>關於</h4>
-      	      <li>網站地圖</li>
-              <li>聯絡資訊</li>
-              <li>好站分享</li>
-              <li>活動紀錄</li>
-              <li>常見問題</li>
+      	      <li><a href="#">網站地圖</a></li>
+              <li><a href="#">聯絡資訊</a></li>
+              <li><a href="#">好站分享</a></li>
+              <li><a href="#">活動紀錄</a></li>
+              <li><a href="#">常見問題</a></li>
       	    </ul>
         </div>
+        <?php
+          $sth = $db->query("SELECT category FROM product_category");
+          $category = $sth->fetchALL(PDO::FETCH_ASSOC);
+         ?>
         <div class="col-sm-4 col-xs-6">
       	    <ul><h4>商品</h4>
-      	      <li>鋼筆</li>
-              <li>墨水</li>
-              <li>筆記本</li>
-              <li>信紙/信封</li>
-              <li>原子比</li>
-              <li>鉛筆</li>
-              <li>套裝</li>
+            <?php foreach($category as $row){ ?>
+      	      <li><a href="#"><?php echo $row['category']; ?></a></li>
+            <?php } ?>
       	    </ul>
         </div>
         <div class="col-sm-4 col-xs-6">
             <ul><h4>品牌</h4>
-              <li>詳細介紹</li>
-              <li>品牌地圖(PC only)</li>
-              <li>相關產業簡介</li>
+              <li><a href="brand_introduction.php">詳細介紹</a></li>
+              <li><a href="#">品牌地圖(PC only)</a></li>
+              <li><a href="#">相關產業簡介</a></li>
             </ul>
         </div>
       </div>

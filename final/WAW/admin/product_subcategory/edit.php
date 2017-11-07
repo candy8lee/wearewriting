@@ -63,7 +63,8 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
             <li class="breadcrumb-item active">子分類管理-<?php echo $product_subcategory['subcategory']; ?></li>
           </ul>
             <form class="" method="post" action="edit.php"  data-toggle="validator" enctype="multipart/form-data">
-              <div class="form-group my-5">
+              <div class="form-group my-5 text-right">
+                <div class="row">
                   <div class="col-sm-12">
                     <label for="categoryID" class="control-label">分類名稱：</label>
                     <select name="categoryID" style="width:200px;">
@@ -73,17 +74,23 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
                     </select>
                   </div>
                 </div>
-                <div class="form-group">
-                    <img src="../../upload/product_subcategory/<?php echo $product_subcategory['picture']; ?>" width="200px;" class="float-right"></img>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-12">
+                      <img src="../../upload/product_subcategory/<?php echo $product_subcategory['picture']; ?>" width="300px"></img>
+                    </div>
                     <div class="col-sm-2">
-                      <label for="picture" class="control-label">子分類圖片：</label>
+                      <label for="picture" class="control-label">子分類圖片</label>
                     </div>
                     <div class="col-sm-10">
                       <input type="file" class="form-control" id="picture" name="picture">
                       <input type="hidden" name="picture1" value="<?php echo $product_subcategory['picture']; ?>">
                     </div>
                 </div>
-                <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="row">
                   <div class="col-sm-2">
                     <label for="subcategory" class="control-label">子分類名稱</label>
                   </div>
@@ -92,15 +99,20 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
                     <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                   </div>
                 </div>
-                <div class="form-group">
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                  </div>
                   <div class="col-sm-10 col-sm-offset-2 text-right">
                     <input type="hidden" name="MM_update" value="UPDATE">
                     <input type="hidden" name="subcategoryID" value="<?php echo $product_subcategory['subcategoryID']; ?>">
                     <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                     <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
-                    <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                     <button type="submit" class="btn btn-warning">送出</button>
                   </div>
+                </div>
               </div>
           </form>
         </div>
