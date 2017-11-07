@@ -63,6 +63,7 @@ print_r($question['questionID']);
         <div class="col-md-12">
           <form class="" method="post" action="reply.php"  data-toggle="validator">
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="content" class="control-label">內容</label>
                 </div>
@@ -71,8 +72,13 @@ print_r($question['questionID']);
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php?status=0&page=<?php echo $_GET['page']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
+                <div class="col-sm-10 text-right">
                   <input type="hidden" name="MM_insert" value="INSERT">
                   <!--submit自動默認狀態為已回覆-->
                   <input type="hidden" name="status" value="1">
@@ -80,10 +86,10 @@ print_r($question['questionID']);
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
                   <input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
-                  <a class="btn btn-warning float-left" href="list.php?status=0&page=<?php echo $_GET['page']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

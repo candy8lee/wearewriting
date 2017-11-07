@@ -69,6 +69,7 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="edit.php" enctype="multipart/form-data">
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <img src="../../upload/brand/<?php echo $brand['logo']; ?>"></img>
                 </div>
@@ -76,17 +77,21 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <input type="file" class="form-control" id="logo" name="logo">
 				          <input type="hidden" name="logo1" value="<?php echo $brand['logo']; ?>"><!--預防沒選logo送出空資料-->
                 </div>
+              </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="name" class="control-label">品牌</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="<?php echo $brand['name']; ?>" data-error="請填寫品牌。（若非必要請盡量以英文為主。）" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="content" class="control-label">介紹</label>
                 </div>
@@ -95,29 +100,36 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <div class="help-block with-errors col-md-12" style="color:blue;"></div>
                 </div>
               </div>
-			  <div class="form-group my-5">
-                <div class="col-sm-12">
-                  <label for="categoryID" class="control-label">國籍：</label>
-					<select name="nation" style="width: 300px;">
-					<?php foreach($nation as $row){
-							if($brand['nation'] == $row['name']){?>
-						<option value="<?php echo $row['name']; ?>" selected="selected">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
-					<?php 	}else{ ?>
-						<option value="<?php echo $row['name']; ?>">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
-					<?php }} ?>
-					</select>
-                </div>
             </div>
-              <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
+			      <div class="form-group my-5">
+              <div class="row">
+                <div class="col-sm-12 text-right">
+                  <label for="categoryID" class="control-label">國籍：</label>
+        					<select name="nation" style="width: 300px;">
+        					<?php foreach($nation as $row){
+        							if($brand['nation'] == $row['name']){?>
+        						<option value="<?php echo $row['name']; ?>" selected="selected">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
+        					<?php 	}else{ ?>
+        						<option value="<?php echo $row['name']; ?>">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
+        					<?php }} ?>
+        					</select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
+                <div class="col-sm-10 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="brandID" value="<?php echo $brand['brandID']; ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
 				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

@@ -82,83 +82,103 @@ $member = $sth->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="edit.php" enctype="multipart/form-data">
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
-                  <img src="../../upload/member/<?php echo $member['picture']; ?>" width="200px"></img>
+                  <img src="../../upload/member/<?php echo $member['picture']; ?>" width="100%"></img>
                 </div>
                 <div class="col-sm-10">
                   <input type="file" class="form-control" id="picture" name="picture">
 				          <input type="hidden" name="picture1" value="<?php echo $member['picture']; ?>"><!--預防沒選picture送出空資料-->
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-12">
-                  <label for="account" class="control-label">帳號：</label>
-                  <label for="account" class="control-label"><?php echo $member['account']; ?></label>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
+                <div class="col-sm-12">
+                  <label for="account" class="control-label">帳號：</label>
+                  <label for="account" class="control-label"><?php echo $member['account']; ?></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="password" class="control-label"></label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="password" name="password" value="<?php echo $member['password']; ?>" data-error="請設定密碼。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="name" class="control-label">名字</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="<?php echo $member['name']; ?>" data-error="請填寫名字。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="phone" class="control-label">電話</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $member['phone']; ?>" data-error="請輸入電話。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="brithday" class="control-label">生日</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="brithday" name="brithday" value="<?php echo $member['brithday']; ?>" data-error="請選擇出生日期。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="email" class="control-label">電子郵件</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="email" class="form-control" id="email" name="email" value="<?php echo $member['email']; ?>" data-error="請填寫郵件地址。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="address" class="control-label">地址</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="address" name="address" value="<?php echo $member['address']; ?>" data-error="請輸入地址。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
-              <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php?page=<?php echo $_GET['page']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
+                <div class="col-sm-10 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="memberID" value="<?php echo $member['memberID']; ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
-                  <a class="btn btn-warning float-left" href="list.php?page=<?php echo $_GET['page']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

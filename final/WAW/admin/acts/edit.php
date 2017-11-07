@@ -66,33 +66,40 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="edit.php"  data-toggle="validator">
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="start" class="control-label">開始日期</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control date" id="start" name="start" value="<?php echo $acts['start'] ?>" data-error="請選擇開始日期。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="happy_end" class="control-label">結束日期</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control date" id="happy_end" name="happy_end" value="<?php echo $acts['happy_end'] ?>" data-error="請選擇結束日期。" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="title" class="control-label">標題</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="title" name="title" value="<?php echo $acts['title']; ?>" data-minlength="3" data-error="標題至少三字元" required>
-                <div class="help-block with-errors col-md-12" style="color:red;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:red;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="content" class="control-label">內容</label>
                 </div>
@@ -101,15 +108,21 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
                   <div class="help-block with-errors col-md-12" style="color:blue;"></div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
-                  <input type="hidden" name="MM_update" value="UPDATE">
-                  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <input type="hidden" name="actID" value="<?php echo $acts['actID']; ?>">
-                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
-              <a class="btn btn-outline-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
-              <button type="submit" class="btn btn-warning">送出更新ㄌ</button>
             </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <a class="btn btn-outline-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                  </div>
+                  <div class="col-sm-10 col-sm-offset-2 text-right">
+                    <input type="hidden" name="MM_update" value="UPDATE">
+                    <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
+                    <input type="hidden" name="actID" value="<?php echo $acts['actID']; ?>">
+                    <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                    <button type="submit" class="btn btn-warning">送出更新</button>
+                  </div>
+                </div>
+              </div>
           </form>
         </div>
       </div>

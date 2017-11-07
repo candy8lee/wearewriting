@@ -84,6 +84,7 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
                     <?php foreach($subcategory as $row){ ?>
                       <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?></a><br>
                     <?php } ?>
+                      <a href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>">新增</a>
                   <!--
                   <select name="">
                     <option>全部顯示</option>

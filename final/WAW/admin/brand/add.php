@@ -54,24 +54,29 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="add.php"  data-toggle="validator" enctype="multipart/form-data">
 			      <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="logo" class="control-label">LOGO</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="file" class="form-control" id="logo" name="logo"  data-error="請上傳LOGO" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="name" class="control-label">品牌</label>
                 </div>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name"  data-error="請填寫品牌。（若非必要請盡量以英文為主。）" required>
-                <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                  <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
               </div>
             </div>
             <div class="form-group">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="content" class="control-label">介紹</label>
                 </div>
@@ -80,23 +85,30 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <div class="help-block with-errors col-md-12" style="color:blue;"></div>
                 </div>
               </div>
-			  <div class="form-group my-5">
-                <div class="col-sm-12">
+            </div>
+			      <div class="form-group my-5">
+              <div class="row">
+                <div class="col-sm-12 text-right">
                   <label for="categoryID" class="control-label">國籍：</label>
-					<select name="nation" style="width: 300px;">
-					<?php foreach($nation as $row){?>
-						<option value="<?php echo $row['name']; ?>">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
-					<?php } ?>
-					</select>
+  					      <select name="nation" style="width: 300px;">
+            		<?php foreach($nation as $row){?>
+            			<option value="<?php echo $row['name']; ?>">&nbsp&nbsp<?php echo $row['name']; ?>,&nbsp&nbsp<?php echo $row['name_cht']; ?></option>
+            		<?php } ?>
+            		  </select>
                 </div>
+              </div>
             </div>
               <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
-                  <input type="hidden" name="MM_insert" value="INSERT">
-                  <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
-				  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
-                  <button type="submit" class="btn btn-warning">送出</button>
+                <div class="row">
+                  <div class="col-sm-2">
+                    <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                  </div>
+                  <div class="col-sm-10 text-right">
+                    <input type="hidden" name="MM_insert" value="INSERT">
+                    <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
+  				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
+                    <button type="submit" class="btn btn-warning">送出</button>
+                  </div>
                 </div>
               </div>
           </form>

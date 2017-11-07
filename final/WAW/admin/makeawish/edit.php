@@ -70,7 +70,8 @@ $wish = $sth->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <form class="" method="post" action="edit.php"  data-toggle="validator">
             <div class="form-group">
-                <div class="col-sm-12">
+              <div class="row">
+                <div class="col-sm-12 text-right">
                   <label for="status" class="control-label">狀態：</label>
                   <select name="status" style="width:200px;">
                     <option value="0" <?php if ($wish['status'] == 0) echo "selected" ?>>新願望</option>
@@ -80,34 +81,43 @@ $wish = $sth->fetch(PDO::FETCH_ASSOC);
                     <option value="80" <?php if ($wish['status'] == 80) echo "selected" ?>>評估中</option>
                     <option value="99" <?php if ($wish['status'] == 99) echo "selected" ?>>流標</option>
                   </select>
+                </div>
               </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2 text-right">
                   <label for="title" class="control-label">願望：</label>
                 </div>
                 <div class="col-sm-10">
                   <label for="title" class="control-label"><?php echo $wish['title']; ?></label>
+                </div>
               </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-2">
+              <div class="row">
+                <div class="col-sm-2 text-right">
                   <label for="content" class="control-label">內容：</label>
                 </div>
                 <div class="col-sm-10">
                   <label for="content" class="control-label"><?php echo $wish['content']; ?></label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-10 col-sm-offset-2 text-right">
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php?status=<?php echo $_GET['status']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
+                <div class="col-sm-10 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="wishID" value="<?php echo $wish['wishID']; ?>">
                   <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
 				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <a class="btn btn-warning float-left" href="list.php?status=<?php echo $_GET['status']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>

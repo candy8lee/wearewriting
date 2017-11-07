@@ -50,21 +50,24 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
         </ul>
         <div class="col-md-12">
           <form class="" method="post" action="add.php"  data-toggle="validator">
-		  <div class="form-group my-5">
-                <div class="col-sm-12">
+		        <div class="form-group my-5">
+              <div class="row">
+                <div class="col-sm-12 text-right">
                   <label for="categoryID" class="control-label">常見問題分類：</label>
-					<select name="categoryID" style="width: 300px;">
-					<?php foreach($QAcate_select as $row){
-							//判斷在哪個分類底下，selected要顯示哪個option
-							if($QAcate['categoryID'] == $row['categoryID']){?>
-						<option value="<?php echo $row['categoryID']; ?>" selected="selected"><?php echo $row['category']; ?></option>
-					<?php }else{ ?>
-						<option value="<?php echo $row['categoryID']; ?>"><?php echo $row['category']; ?></option>
-					<?php }} ?>
-					</select>
+        					<select name="categoryID" style="width: 300px;">
+        					<?php foreach($QAcate_select as $row){
+        							//判斷在哪個分類底下，selected要顯示哪個option
+        							if($QAcate['categoryID'] == $row['categoryID']){?>
+        						<option value="<?php echo $row['categoryID']; ?>" selected="selected"><?php echo $row['category']; ?></option>
+        					<?php }else{ ?>
+        						<option value="<?php echo $row['categoryID']; ?>"><?php echo $row['category']; ?></option>
+        					<?php }} ?>
+        					</select>
                 </div>
+              </div>
             </div>
             <div class="form-group my-5">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="Title" class="control-label">標題</label>
                 </div>
@@ -72,8 +75,10 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <input type="text" class="form-control" id="title" name="title" data-minlength="1" data-error="標題至少一字元。" required>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
-			<div class="form-group my-5">
+			      <div class="form-group my-5">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="reply" class="control-label">內文</label>
                 </div>
@@ -81,15 +86,20 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <textarea class="form-control" id="reply" name="reply" data-error="請填寫內容。" required></textarea>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
                 </div>
+              </div>
             </div>
             <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php?cateID=<?php echo $_GET['cateID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_insert" value="INSERT">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
-				  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <a class="btn btn-warning float-left" href="list.php?cateID=<?php echo $_GET['cateID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
+              </div>
             </div>
           </form>
         </div>

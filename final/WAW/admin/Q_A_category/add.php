@@ -43,7 +43,8 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
         </ul>
         <div class="col-md-12">
           <form class="" method="post" action="add.php"  data-toggle="validator">
-            <div class="form-group my-5">
+            <div class="form-group text-right">
+              <div class="row">
                 <div class="col-sm-2">
                   <label for="Title" class="control-label">分類名稱</label>
                 </div>
@@ -52,15 +53,20 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
                   <div class="help-block with-errors col-md-12" style="color:red;"></div>
                 </div>
               </div>
-              <div class="form-group">
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                </div>
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_insert" value="INSERT">
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
-                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
+            </div>
           </form>
         </div>
       </div>
