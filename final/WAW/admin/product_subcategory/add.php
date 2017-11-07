@@ -88,7 +88,11 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
               <div class="form-group">
                 <div class="row">
                   <div class="col-sm-2">
-                    <a class="btn btn-warning float-left" href="../product/list.php?cateID=<?php echo $_GET['cateID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                    <?php if(isset($_GET['cateID'])){ ?>
+                      <a class="btn btn-warning float-left" href="../product/list.php?cateID=<?php echo $_GET['cateID']; ?>" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                    <?php }else{ ?>
+                      <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
+                    <?php } ?>
                   </div>
                   <div class="col-sm-10 text-right">
                     <input type="hidden" name="MM_insert" value="INSERT">
