@@ -21,12 +21,12 @@
 <?php// if(isset($_SESSION['account'])) include_once("nav_login.php");
 	//	else{?>
 			<li><a href="#">申請會員</a></li>
-			<li><a href="#"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbspSign in</a></li>
+			<li><a href="login/login.php"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbspSign in</a></li>
 <?php//}?>
     </nav>
   </div>
 </div>
-<div class="row my-5" style="background:#FFC97B;">
+<div class="row my-5" style="background:#e7cda7;">
   <div class="col-md-4">
     <div class="text-center" style="height:120px;">
       <img id="logo" src="images/logo.png"</img>
@@ -36,13 +36,13 @@
   <div id="nav" class="col-md-8">
     <nav>
 		<ul class="nav nav-tabs pull-right">
-		  <li><a href="#" class="dn_header">首頁</a></li>
+		  <li><a href="index.php" class="dn_header">首頁</a></li>
 		  <li class="dropdown">
 		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">關於<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-			<li><a href="#">網站地圖</a></li>
-			<li><a href="#">聯絡資訊</a></li>
-			<li><a href="#">好站分享</a></li>
+			<li><a href="about.php#map">網站地圖</a></li>
+			<li><a href="about.php#information">聯絡資訊</a></li>
+			<li><a href="about.php#link">好站分享</a></li>
 			<li class="divider"></li>
 			<li><a href="#">活動參與</a></li>
 			<li><a href="#">Q & A</a></li>

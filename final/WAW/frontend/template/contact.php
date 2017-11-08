@@ -3,7 +3,7 @@
     $( "#accordion" ).accordion({
       heightStyle: "content",
       active: false,
-	  collapsible: true 
+	  collapsible: true
     });
   } );
 </script>
@@ -56,7 +56,7 @@
 		</form>
 		<div class="col-md-6">
 			<h2 class="text-right">contact Us<h2>
-			<p id="postscript" class="text-right">*若已有會員身分請<a href="#">登入</a>，在帳號專區裡也備有提問服務與紀錄。<p>
+			<p id="postscript" class="text-right">*若已有會員身分請<a href="login/login.php">登入</a>，在帳號專區裡也備有提問服務與紀錄。<p>
 		</div>
 	  </div>
 	</div>

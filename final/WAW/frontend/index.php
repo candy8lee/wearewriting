@@ -3,22 +3,13 @@
 <?php require_once('template/header.php'); ?>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index_carousel.css">
-<script src="index_carousel.js">
-
-</script>
-<script>
-  $(function(){
-    $('#MenuIcon').click(function(){
-     $('#nav').slideToggle();
-    });
-  });
-</script>
+<script src="index_carousel.js"></script>
 </head>
 
 <body>
 <?php require_once('template/nav.php'); ?>
 <div class="">
-    <h1 class="text-center"><span>We</span> <span>Are</span> <span>Writing</span></h1>
+    <h1 class="text-center">We Are Writing</h1>
 </div>
 <div class="slider-container">
   <div class="slider-control left inactive"></div>
@@ -82,6 +73,36 @@
       </div>
     </div>
   </div>
+</div>
+<div id="text_photo" class="container ">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-4">
+        <img src="images/textphoto2.jpg" alt="">
+        <div class="textphoto">
+          <h3>標題</h3>
+          <p>內文</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="textphoto">
+          <h3>標題</h3>
+          <p>內文</p>
+        </div>
+        <img src="images/textphoto1.jpg" alt="">
+      </div>
+      <div class="col-sm-4">
+        <img src="images/textphoto3.jpg" alt="">
+        <div class="textphoto">
+          <h3>標題</h3>
+          <p>內文</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="enter" class="text-center">
+  <a href="product.php">ENTER</a>
 </div>
 <?php include_once("template/contact.php"); ?>
 <?php include_once("template/footer.php"); ?>
