@@ -5,6 +5,12 @@
     <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
       <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="../news/list.php">消息管理</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../product_category/list.php">商品管理</a>
+        </li>
         <li class="dropdown">
           <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">關於管理
           <span class="caret"></span></button>
@@ -16,12 +22,6 @@
             <li><a href="../makeawish/list.php">許願池管理</a></li>
             <li><a href="../boards/list.php">留言板管理</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../news/list.php">消息管理</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../product_category/list.php">商品管理</a>
         </li>
         <li class="dropdown">
           <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown" style="border: 0px;">訂單管理
