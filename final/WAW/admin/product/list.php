@@ -84,7 +84,7 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
                     <?php foreach($subcategory as $row){ ?>
                       <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?></a><br>
                     <?php } ?>
-                      <a href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>">新增</a>
+                      <a class="btn btn-info" href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>">新增</a>
                   <!--
                   <select name="">
                     <option>全部顯示</option>
@@ -101,7 +101,7 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
               </tr>
             <?php foreach ($product as $row ) { ?>
               <tr class="text-center">
-                <td><?php echo $row['picture']; ?></td>
+                <td><img src='../../upload/product/<?php echo $row['picture']; ?>'></img></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><a href="edit.php?productID=<?php echo $row['productID']; ?>&page=<?php echo $page_num; ?>&cateID=<?php echo $row['categoryID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
                 <td><a href="delet.php?productID=<?php echo $row['productID']; ?>&cateID=<?php echo $_GET['cateID'] ?><?php if(isset($_GET['subID'])) echo "&subID=".$_GET['subID']; ?>" class="btn btn-warning" role="button" onclick="if(!confirm('是某要刪除此筆商品資料？')){return false;};"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>

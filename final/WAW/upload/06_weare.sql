@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2017-11-01 10:59:50
+-- 產生時間： 2017-11-09 12:55:07
 -- 伺服器版本: 10.1.25-MariaDB
 -- PHP 版本： 5.6.31
 
@@ -49,16 +49,18 @@ CREATE TABLE `acts` (
   `start` varchar(255) NOT NULL,
   `happy_end` varchar(255) NOT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
-  `updatedDate` varchar(255) DEFAULT NULL
+  `updatedDate` varchar(255) DEFAULT NULL,
+  `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `acts`
 --
 
-INSERT INTO `acts` (`actID`, `title`, `content`, `start`, `happy_end`, `createdDate`, `updatedDate`) VALUES
-(2, '活動二', '活動二', '2017-09-11', '2017-09-28', '2017-08-15', NULL),
-(3, '活動三', '<p>活動3</p>', '2017-10-03', '2017-10-11', '17-10-30 18:32:35', '17-10-30 18:40:22');
+INSERT INTO `acts` (`actID`, `title`, `content`, `start`, `happy_end`, `createdDate`, `updatedDate`, `author`) VALUES
+(2, '活動二', '活動二', '2017-09-11', '2017-09-28', '2017-08-15', NULL, ''),
+(3, '活動三', '<p>活動3</p>', '2017-10-03', '2017-10-11', '17-10-30 18:32:35', '17-10-30 18:40:22', ''),
+(4, 'test', '<p>test</p>', '2018-02-27', '2018-03-01', '17-11-07 18:44:55', NULL, 'admin');
 
 -- --------------------------------------------------------
 
@@ -71,8 +73,16 @@ CREATE TABLE `boards` (
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `createdDate` varchar(255) NOT NULL,
-  `membetID` int(11) NOT NULL
+  `memberID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `boards`
+--
+
+INSERT INTO `boards` (`boardsID`, `title`, `content`, `createdDate`, `memberID`) VALUES
+(2, 'test', '123', '2017-11-03', 16),
+(3, 'group', '123', '2017-11-01', 17);
 
 -- --------------------------------------------------------
 
@@ -88,6 +98,14 @@ CREATE TABLE `boards_reply` (
   `content` text NOT NULL,
   `createdDate` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `boards_reply`
+--
+
+INSERT INTO `boards_reply` (`boardsID`, `boards_replyID`, `memberID`, `title`, `content`, `createdDate`) VALUES
+(2, 1, 13, 'test', 'reply', '2017-11-03'),
+(3, 3, 15, 'group', '123', '2017-11-02');
 
 -- --------------------------------------------------------
 
@@ -112,6 +130,36 @@ CREATE TABLE `brand` (
 
 INSERT INTO `brand` (`brandID`, `logo`, `name`, `content`, `nation`, `createdDate`, `updatedDate`, `author`) VALUES
 (8, 'Robert Oster20171101101351.png', 'Robert Oster', '<p>Robert Oster</p>', 'United States', '17-11-01 10:13:37', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `customer_order`
+--
+
+CREATE TABLE `customer_order` (
+  `orderID` int(11) NOT NULL,
+  `memberID` int(11) DEFAULT NULL,
+  `orderNO` varchar(255) DEFAULT NULL,
+  `orderDate` varchar(255) DEFAULT NULL,
+  `totalPrice` int(11) DEFAULT NULL,
+  `shipping` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `createdDate` varchar(255) DEFAULT NULL,
+  `updatedDate` varchar(255) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  `author` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `customer_order`
+--
+
+INSERT INTO `customer_order` (`orderID`, `memberID`, `orderNO`, `orderDate`, `totalPrice`, `shipping`, `name`, `phone`, `email`, `address`, `createdDate`, `updatedDate`, `status`, `author`) VALUES
+(1, 54, '6546', '6545', 465, 564, '546', '654', '564', '654', NULL, '17-11-07 14:34:33', 0, 'admin');
 
 -- --------------------------------------------------------
 
@@ -216,12 +264,20 @@ INSERT INTO `member` (`memberID`, `account`, `password`, `name`, `picture`, `pho
 
 CREATE TABLE `member_question` (
   `questionID` int(11) NOT NULL,
+  `replyID` int(11) DEFAULT NULL,
   `memberID` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
   `createdDate` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `member_question`
+--
+
+INSERT INTO `member_question` (`questionID`, `replyID`, `memberID`, `title`, `content`, `createdDate`, `status`) VALUES
+(1, 10, 14, 'test', 'test', '2017-11-03', 1);
 
 -- --------------------------------------------------------
 
@@ -230,11 +286,20 @@ CREATE TABLE `member_question` (
 --
 
 CREATE TABLE `member_reply` (
-  `replyID` int(11) DEFAULT NULL,
+  `replyID` int(11) NOT NULL,
+  `questionID` int(11) NOT NULL,
   `content` text NOT NULL,
   `createdDate` varchar(255) NOT NULL,
   `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `member_reply`
+--
+
+INSERT INTO `member_reply` (`replyID`, `questionID`, `content`, `createdDate`, `author`) VALUES
+(10, 1, '<p>123</p>', '17-11-03 10:49:11', 'admin'),
+(11, 1, '<p>3321</p>', '17-11-03 10:55:01', 'admin');
 
 -- --------------------------------------------------------
 
@@ -276,37 +341,16 @@ CREATE TABLE `news` (
   `content` text NOT NULL,
   `publishedDate` varchar(255) NOT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
-  `updatedDate` varchar(255) DEFAULT NULL
+  `updatedDate` varchar(255) DEFAULT NULL,
+  `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `news`
 --
 
-INSERT INTO `news` (`newsID`, `title`, `content`, `publishedDate`, `createdDate`, `updatedDate`) VALUES
-(29, 'We Are Writing NEW OPEN!', '<p>HELLO EVERYONE. LET\'S PARTY RIGHT NOW!</p>', '2017-10-31', '17-10-31 17:46:45', NULL);
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `order`
---
-
-CREATE TABLE `order` (
-  `orderID` int(11) NOT NULL,
-  `memberID` int(11) NOT NULL,
-  `orderNO` varchar(255) NOT NULL,
-  `orderDate` varchar(255) NOT NULL,
-  `totalPrice` int(11) NOT NULL,
-  `shipping` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `createdDate` varchar(255) DEFAULT NULL,
-  `updatedDate` varchar(255) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `news` (`newsID`, `title`, `content`, `publishedDate`, `createdDate`, `updatedDate`, `author`) VALUES
+(29, 'We Are Writing NEW OPEN!', '<p>HELLO EVERYONE. LET\'S PARTY RIGHT NOW!</p>', '2017-10-31', '17-10-31 17:46:45', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -319,7 +363,6 @@ CREATE TABLE `order_details` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `picture` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
   `cateID` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -327,6 +370,13 @@ CREATE TABLE `order_details` (
   `createdDate` varchar(255) DEFAULT NULL,
   `updatedDate` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `order_details`
+--
+
+INSERT INTO `order_details` (`order_detailsID`, `orderID`, `productID`, `picture`, `cateID`, `price`, `quantity`, `postscript`, `createdDate`, `updatedDate`) VALUES
+(1, 1, 18, '', 0, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -346,13 +396,34 @@ CREATE TABLE `product` (
   `picture4` varchar(255) DEFAULT NULL,
   `price` int(11) NOT NULL,
   `nib` varchar(255) DEFAULT NULL,
-  `remain` varchar(255) NOT NULL,
   `decription` text NOT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
   `updatedDate` varchar(255) DEFAULT NULL,
   `store` int(11) NOT NULL DEFAULT '0',
-  `sold` int(11) NOT NULL DEFAULT '0'
+  `sold` int(11) DEFAULT '0',
+  `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `product`
+--
+
+INSERT INTO `product` (`productID`, `categoryID`, `subcategoryID`, `brandID`, `name`, `picture`, `picture2`, `picture3`, `picture4`, `price`, `nib`, `decription`, `createdDate`, `updatedDate`, `store`, `sold`, `author`) VALUES
+(1, 12, 4, 0, 'test', '4_20171102155206.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
+(2, 12, 4, 0, 'test', '4_20171102155223.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
+(3, 12, 4, 0, 'test', '4_20171102155230.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
+(4, 13, 10, 0, 'test', '10_20171102155300.gif', NULL, NULL, NULL, 123, '123', '<p>13</p>', '17-11-02 15:52:33', NULL, 12, 0, 'admin'),
+(5, 13, 11, 0, '123', '11_20171102155333.jpg', NULL, NULL, NULL, 123, '123', '<p>123</p>', '17-11-02 15:53:13', NULL, 123, 0, 'admin'),
+(6, 11, 0, 0, '11111111', '11_20171102160346.gif', NULL, NULL, NULL, 111111111, '111111111', '<p>111111111</p>', '17-11-02 16:03:27', NULL, 11, 0, 'admin'),
+(7, 11, 0, 8, '1', '11_20171103141702_37.jpg', '11_20171103141702_26.png', NULL, NULL, 1, '1', '<p>1</p>', '17-11-03 14:16:45', NULL, 1, 0, 'test'),
+(8, 11, 0, 8, '1', '11_20171103141844_29.jpg', '11_20171103141844_90.png', NULL, NULL, 1, '1', '<p>1</p>', '17-11-03 14:16:45', NULL, 1, 0, 'test'),
+(9, 13, 0, 8, '3', '13_20171103142004_68.gif', NULL, NULL, NULL, 3, '3', '<p>3</p>', '17-11-03 14:19:41', NULL, 0, 0, 'test'),
+(14, 16, 0, 8, '0', '16_20171103144033_48.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:40:27', NULL, 0, 0, 'test'),
+(15, 14, 0, 8, '0', '14_20171103144247_55.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:42:40', NULL, 0, 0, 'test'),
+(16, 14, 0, 8, '0', '14_20171103144340_39.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:43:30', NULL, 0, 0, 'test'),
+(17, 14, 0, 8, '0', '14_20171103144410_39.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:44:02', NULL, 0, 0, 'test'),
+(18, 11, 2, 8, '5', '11_20171103165436_36.jpg', '11_20171103160454_29.gif', '', '', 5, '5', '<p>5</p>', '17-11-03 16:04:34', '17-11-03 16:54:28', 0, 0, 'admin'),
+(19, 11, 0, 8, 'try', '11_20171107192353_54.jpg', '11_20171107192353_61.jpg', NULL, NULL, 123, '123', '<p>123</p>', '17-11-07 19:23:22', NULL, 0, 0, 'admin');
 
 -- --------------------------------------------------------
 
@@ -376,6 +447,7 @@ CREATE TABLE `product_category` (
 INSERT INTO `product_category` (`categoryID`, `category`, `picture`, `createdDate`, `updatedDate`, `author`) VALUES
 (11, '鋼筆', NULL, '2017-11-01', NULL, 'admin'),
 (12, '墨水', NULL, '2017-11-01', NULL, 'admin'),
+(13, '筆記本', NULL, '2017-11-01', NULL, 'admin'),
 (14, '信紙/信封', NULL, '2017-11-01', NULL, 'admin'),
 (15, '鉛筆', NULL, '2017-11-01', NULL, 'admin'),
 (16, '原子筆', NULL, '2017-11-01', NULL, 'admin'),
@@ -392,7 +464,7 @@ CREATE TABLE `product_subcategory` (
   `subcategoryID` int(11) NOT NULL,
   `categoryID` int(11) NOT NULL,
   `subcategory` varchar(255) NOT NULL,
-  `picture` varchar(255) DEFAULT NULL,
+  `picture` varchar(255) NOT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
   `updatedDate` varchar(255) DEFAULT NULL,
   `author` varchar(255) NOT NULL
@@ -403,17 +475,17 @@ CREATE TABLE `product_subcategory` (
 --
 
 INSERT INTO `product_subcategory` (`subcategoryID`, `categoryID`, `subcategory`, `picture`, `createdDate`, `updatedDate`, `author`) VALUES
-(1, 11, '沾水筆', NULL, '2017-11-01', NULL, 'admin'),
-(2, 11, '按壓墨囊', NULL, '2017-11-01', NULL, 'admin'),
-(3, 11, '旋轉上墨', NULL, '2017-11-01', NULL, 'admin'),
-(4, 12, '瓶裝', NULL, '2017-11-01', NULL, 'admin'),
-(5, 12, '分裝', NULL, '2017-11-01', NULL, 'admin'),
-(6, 12, '卡水', NULL, '2017-11-01', NULL, 'admin'),
-(7, 12, '福袋', NULL, '2017-11-01', NULL, 'admin'),
-(8, 12, '玻璃空瓶', NULL, '2017-11-01', NULL, 'admin'),
-(9, 13, '經典', NULL, '2017-11-01', NULL, 'admin'),
-(10, 13, '膠裝', NULL, '2017-11-01', NULL, 'admin'),
-(11, 13, '線裝', NULL, '2017-11-01', NULL, 'admin');
+(1, 11, '沾水筆', '1_20171102123733.jpg', '2017-11-01', '17-11-07 20:04:53', 'admin'),
+(2, 11, '按壓墨囊', '2_20171102124147.PNG', '2017-11-01', '17-11-02 12:41:30', 'admin'),
+(3, 11, '旋轉上墨', '3_20171102113620.jpg', '2017-11-01', '17-11-02 11:36:16', 'admin'),
+(4, 12, '瓶裝', '', '2017-11-01', NULL, 'admin'),
+(5, 12, '分裝', '', '2017-11-01', NULL, 'admin'),
+(6, 12, '卡水', '', '2017-11-01', NULL, 'admin'),
+(7, 12, '福袋', '', '2017-11-01', NULL, 'admin'),
+(8, 12, '玻璃空瓶', '', '2017-11-01', NULL, 'admin'),
+(9, 13, '經典', '', '2017-11-01', NULL, 'admin'),
+(10, 13, '膠裝', '', '2017-11-01', NULL, 'admin'),
+(11, 13, '線裝', '', '2017-11-01', NULL, 'admin');
 
 -- --------------------------------------------------------
 
@@ -426,18 +498,19 @@ CREATE TABLE `q_a_category` (
   `category` varchar(255) NOT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
-  `updatedDate` varchar(255) DEFAULT NULL
+  `updatedDate` varchar(255) DEFAULT NULL,
+  `author` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- 資料表的匯出資料 `q_a_category`
 --
 
-INSERT INTO `q_a_category` (`categoryID`, `category`, `picture`, `createdDate`, `updatedDate`) VALUES
-(7, '購物流程', NULL, '17-10-31 15:39:48', NULL),
-(8, '帳戶變更', NULL, '17-10-31 15:42:36', NULL),
-(9, '訂單相關', NULL, '17-10-31 15:42:48', NULL),
-(11, '個資法', NULL, '17-10-31 16:02:07', NULL);
+INSERT INTO `q_a_category` (`categoryID`, `category`, `picture`, `createdDate`, `updatedDate`, `author`) VALUES
+(7, '購物流程', NULL, '17-10-31 15:39:48', NULL, ''),
+(8, '帳戶變更', NULL, '17-10-31 15:42:36', NULL, ''),
+(9, '訂單相關', NULL, '17-10-31 15:42:48', NULL, ''),
+(11, '個資法', NULL, '17-10-31 16:02:07', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -487,7 +560,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `account`, `password`, `createdDate`) VALUES
-(2, 'admin', 'admmin', '2017-10-27');
+(2, 'admin', 'admin', '2017-10-27'),
+(3, 'test', 'test', '2017-11-02');
 
 --
 -- 已匯出資料表的索引
@@ -524,6 +598,12 @@ ALTER TABLE `brand`
   ADD PRIMARY KEY (`brandID`);
 
 --
+-- 資料表索引 `customer_order`
+--
+ALTER TABLE `customer_order`
+  ADD PRIMARY KEY (`orderID`);
+
+--
 -- 資料表索引 `industry`
 --
 ALTER TABLE `industry`
@@ -548,6 +628,12 @@ ALTER TABLE `member_question`
   ADD PRIMARY KEY (`questionID`);
 
 --
+-- 資料表索引 `member_reply`
+--
+ALTER TABLE `member_reply`
+  ADD PRIMARY KEY (`replyID`);
+
+--
 -- 資料表索引 `nation`
 --
 ALTER TABLE `nation`
@@ -558,12 +644,6 @@ ALTER TABLE `nation`
 --
 ALTER TABLE `news`
   ADD PRIMARY KEY (`newsID`);
-
---
--- 資料表索引 `order`
---
-ALTER TABLE `order`
-  ADD PRIMARY KEY (`orderID`);
 
 --
 -- 資料表索引 `order_details`
@@ -615,27 +695,32 @@ ALTER TABLE `users`
 -- 使用資料表 AUTO_INCREMENT `about`
 --
 ALTER TABLE `about`
-  MODIFY `pageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pageID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- 使用資料表 AUTO_INCREMENT `acts`
 --
 ALTER TABLE `acts`
-  MODIFY `actID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `actID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- 使用資料表 AUTO_INCREMENT `boards`
 --
 ALTER TABLE `boards`
-  MODIFY `boardsID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `boardsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- 使用資料表 AUTO_INCREMENT `boards_reply`
 --
 ALTER TABLE `boards_reply`
-  MODIFY `boards_replyID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `boards_replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- 使用資料表 AUTO_INCREMENT `brand`
 --
 ALTER TABLE `brand`
   MODIFY `brandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- 使用資料表 AUTO_INCREMENT `customer_order`
+--
+ALTER TABLE `customer_order`
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- 使用資料表 AUTO_INCREMENT `industry`
 --
@@ -650,12 +735,17 @@ ALTER TABLE `makeawish`
 -- 使用資料表 AUTO_INCREMENT `member`
 --
 ALTER TABLE `member`
-  MODIFY `memberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `memberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- 使用資料表 AUTO_INCREMENT `member_question`
 --
 ALTER TABLE `member_question`
-  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- 使用資料表 AUTO_INCREMENT `member_reply`
+--
+ALTER TABLE `member_reply`
+  MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- 使用資料表 AUTO_INCREMENT `nation`
 --
@@ -667,20 +757,15 @@ ALTER TABLE `nation`
 ALTER TABLE `news`
   MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
--- 使用資料表 AUTO_INCREMENT `order`
---
-ALTER TABLE `order`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
 -- 使用資料表 AUTO_INCREMENT `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_detailsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `order_detailsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- 使用資料表 AUTO_INCREMENT `product`
 --
 ALTER TABLE `product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- 使用資料表 AUTO_INCREMENT `product_category`
 --
@@ -700,12 +785,12 @@ ALTER TABLE `q_a_category`
 -- 使用資料表 AUTO_INCREMENT `q_a_reply`
 --
 ALTER TABLE `q_a_reply`
-  MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- 使用資料表 AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

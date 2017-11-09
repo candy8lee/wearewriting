@@ -291,7 +291,16 @@ h3{
 	margin-left: -20%;
 	font-size: 18px;
 }
-.product_list{
+.product_menu ul li{
+	list-style-type: none;
+	list-style-image: none;
+	margin-left: -15px;
+}
+.product_menu a{
+	color:#003684;
+}
+.product_menu h3{
+	text-align: left;
 }
 .product_list table{
 	width: 90%;
