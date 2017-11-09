@@ -1,7 +1,6 @@
 <html>
 <head>
 <?php require_once('template/header.php'); ?>
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/index_carousel.css">
 <script src="index_carousel.js"></script>
 </head>

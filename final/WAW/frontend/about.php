@@ -1,7 +1,6 @@
 <html>
 <head>
 <?php require_once('template/header.php'); ?>
-<link rel="stylesheet" href="css/style.css">
 <script>
 $('.flip').hover(function(){
   $(this).find('.card').toggleClass('flipped');

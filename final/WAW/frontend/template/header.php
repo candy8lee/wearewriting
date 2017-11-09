@@ -13,6 +13,7 @@ require_once('../asset/connection/database.php');
 <script src="../asset/js/jquery-ui/jquery-ui.js"></script>
 <link rel="stylesheet" href="../admin/css/style.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
   <!--編輯器-->
 <script type="text/javascript" src="../asset/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
