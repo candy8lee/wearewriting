@@ -37,7 +37,7 @@ $totalRows = count($wish);
             <li class="breadcrumb-item"><a href="list.php">主控台</a></li>
             <li class="breadcrumb-item active">許願池管理</li>
           </ul>
-		</div>
+		    </div>
 	  </div>
     <div class="row">
         <div class="col-md-12 text-right my-3">

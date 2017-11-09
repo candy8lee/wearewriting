@@ -45,7 +45,7 @@
 			<li><a href="about.php#link">好站分享</a></li>
 			<li class="divider"></li>
 			<li><a href="acts.php">活動紀錄</a></li>
-			<li><a href="#">Q & A</a></li>
+			<li><a href="q_a.php">Q & A</a></li>
 		  </ul>
 		  </li>
 		  <li class="dropdown">

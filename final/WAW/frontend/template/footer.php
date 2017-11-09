@@ -8,7 +8,7 @@
         			<li><a href="about.php#information">聯絡資訊</a></li>
         			<li><a href="about.php#link">好站分享</a></li>
               <li><a href="acts.php">活動紀錄</a></li>
-              <li><a href="#">常見問題</a></li>
+              <li><a href="q_a.php">常見問題</a></li>
       	    </ul>
         </div>
         <?php
