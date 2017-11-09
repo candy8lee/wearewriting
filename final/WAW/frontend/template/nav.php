@@ -52,11 +52,12 @@
 		  <a class="dropdown-toggle dn_header" type="button" data-toggle="dropdown" href="#">商品<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
       <?php
-        $sth = $db->query("SELECT category FROM product_category");
+        $sth = $db->query("SELECT * FROM product_category");
         $category = $sth->fetchALL(PDO::FETCH_ASSOC);
         foreach($category as $row){ ?>
-          <li><a href="#"><?php echo $row['category']; ?></a></li>
+          <li><a href="product_category.php?cateID=<?php echo $row['categoryID']; ?>"><?php echo $row['category']; ?></a></li>
         <?php } ?>
+          <li><a href="product_no_category.php">全部商品</a></li>
 		  </ul>
 		  </li>
 		  <li class="dropdown">

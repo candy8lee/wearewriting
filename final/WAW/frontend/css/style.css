@@ -291,6 +291,18 @@ h3{
 	margin-left: -20%;
 	font-size: 18px;
 }
+.product_list{
+}
+.product_list table{
+	width: 90%;
+	margin: 25px 5px;
+	background: rgba(	255,255,255,.8);
+	border-radius: 5px;
+	box-shadow: 10px 10px 17px 0px rgba(189,186,182,0.43);
+}
+.product_list td{
+	text-align: center;
+}
 #enter{
 	width: 100%;
 	margin: 100px auto;

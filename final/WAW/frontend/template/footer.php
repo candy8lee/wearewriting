@@ -12,13 +12,14 @@
       	    </ul>
         </div>
         <?php
-          $sth = $db->query("SELECT category FROM product_category");
+          $sth = $db->query("SELECT * FROM product_category");
           $category = $sth->fetchALL(PDO::FETCH_ASSOC);
          ?>
         <div class="col-sm-4 col-xs-6">
       	    <ul><h4>商品</h4>
+              <li><a href="product_no_category.php">全部商品</a></li>
             <?php foreach($category as $row){ ?>
-      	      <li><a href="#"><?php echo $row['category']; ?></a></li>
+      	      <li><a href="product_category.php?cateID=<?php echo $row['categoryID']; ?>"><?php echo $row['category']; ?></a></li>
             <?php } ?>
       	    </ul>
         </div>
