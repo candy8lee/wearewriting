@@ -64,41 +64,27 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
           </ul>
 		    </div>
 	  </div>
+    <div class="row">
+      <div class="col-md-12 text-right my-3">
+        Sort by:
+        <?php foreach($subcategory as $row){ ?>
+          <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?>。</a>
+        <?php } ?>
+          <a href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i>新增</a>
+      </div>
+    </div>
 	  <div class="row">
         <div class="col-md-12">
           <table class="table">
             <thead>
               <tr class="text-center">
-                <th width=20%>子分類選擇</th>
-                <th width=20%>商品圖片</th>
-                <th width=40%>商品</th>
+                <th width=30%>商品圖片</th>
+                <th width=50%>商品</th>
                 <th>編輯</th>
                 <th>刪除</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td rowspan="100%">
-                  <div class="col-md-12 text-center my-3">
-                    子分類select。<br>
-                    <?php foreach($subcategory as $row){ ?>
-                      <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?></a><br>
-                    <?php } ?>
-                      <a class="btn btn-info" href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>">新增</a>
-                  <!--
-                  <select name="">
-                    <option>全部顯示</option>
-                    <option value="0">新願望</option>
-                    <option value="1">處理中</option>
-                    <option value="2">核定中</option>
-                    <option value="3">完成</option>
-                    <option value="80">評估中</option>
-                    <option value="99">流標</option>
-                  </select>
-                  -->
-                </div>
-                </td>
-              </tr>
             <?php foreach ($product as $row ) { ?>
               <tr class="text-center">
                 <td><img src='../../upload/product/<?php echo $row['picture']; ?>'></img></td>
