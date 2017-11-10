@@ -3,7 +3,7 @@
 <?php require_once('template/header.php'); ?>
 <style media="screen">
 	#contact{
-		margin:-20px 0;
+		margin:-30px 0 -15px 0;
 	}
 	h3{
 		text-align: right;
@@ -43,7 +43,12 @@
 			collapsible: true
 		 });
 		$('#dec_btn').click(function(){
-				$('#decription').css('display', 'block');
+				$("#decription").delay(800).fadeIn(2000, function(){
+					$('#decription').css("height", "auto");
+				});
+				$('#dec_btn').fadeOut(800, function(){
+					$('#dec_btn').css("display", "none");
+				});
 		});
 	} );
 </script>
@@ -98,7 +103,8 @@
 								<div class="quantity-button">
 									<i class="fa fa-plus" aria-hidden="true"></i>
 								</div>
-								<input class="text-center" type="text" name="quantity" value="1">
+								<input class="text-center" type="text" name="quantity" value="1" pattern="^[_1-9]" data-error="請輸入有效數字。" required>
+								<div class="help-block with-errors"></div>
 								<div class="quantity-button">
 									<i class="fa fa-minus" aria-hidden="true"></i>
 								</div>
@@ -124,7 +130,7 @@
 			<div class="col-sm-12">
 				規格表
 			</div>
-			<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">COL8集中中間顯示詳細資訊
+			<div id="content" class="col-sm-offset-2 col-sm-8 col-sm-offset-2">COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊
 			</div>
 		</div>
 	</div>

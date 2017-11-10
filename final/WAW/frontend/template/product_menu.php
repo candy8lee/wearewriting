@@ -41,6 +41,13 @@
 				</div>
 			</div>
 		<?php } ?>
+		<a href="product_subcategory_list.php">子分類總攬(
+			<?php
+				$sth = $db->query("SELECT * FROM product_subcategory");
+				$subcate = $sth->fetchALL(PDO::FETCH_ASSOC);
+				echo count($subcate);
+			 ?>
+			)</a><br>
 		<a href="product_no_category.php">返回全部商品(<?php echo $items; ?>)</a>
 		</div>
 	</div>
