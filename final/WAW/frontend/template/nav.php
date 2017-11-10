@@ -1,7 +1,8 @@
 <script>
   $(function(){
     $('#MenuIcon').click(function(){
-     $('#nav nav').slideToggle();
+     $('#nav').slideToggle();
+     $('#MenuIcon').css("color", "transparent");
     });
   });
 </script>

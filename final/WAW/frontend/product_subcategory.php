@@ -69,7 +69,7 @@
 					$product = $sth->fetch(PDO::FETCH_ASSOC);
 					echo $product['category'];
 				?>
-				全部商品</a>頁面。
+				全部商品</a>頁面。<br><br><br>
 			</div>
 		</div>
 	<?php } ?>

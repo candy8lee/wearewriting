@@ -63,7 +63,7 @@
 		<div class="col-sm-10">
 			<div class="text-center" style="font-size:20px; margin-top:100px;">
 				正積極與廠商溝通為大家提供更好的商品品質，敬請期待。<br>
-				返回<a href="product_no_category.php">全部商品</a>頁面。
+				返回<a href="product_no_category.php">全部商品</a>頁面。<br><br><br>
 			</div>
 		</div>
 	<?php } ?>
