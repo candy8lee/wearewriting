@@ -1,11 +1,11 @@
 .btn-warning{
-  background: rgb(233, 195, 121);
-  font-size: 20px;
-  color: #FFF;
+  background: rgb(233, 195, 121) !important;
+  font-size: 20px ;
+  color: #FFF !important;
 }
 .btn-danger{
-  font-size: 20px;
-  background: brown;
+  font-size: 20px ;
+  background: brown !important;
 }
 .navbar-brand{
   background: rgb(233, 195, 121) !important;
@@ -14,7 +14,7 @@
   background: rgb(233, 195, 121) !important;
 }
 .breadcrumb{
-  background: rgb(255, 238, 205);
+  background: rgb(255, 238, 205) !important;
 }
 .table_sub{
   vertical-align: middle !important;

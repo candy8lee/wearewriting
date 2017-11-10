@@ -110,7 +110,7 @@
 								</div>
 							</td>
 						</tr>
-						<tr id="cart_btn">
+						<tr id="add_cart_btn">
 							<td colspan="2" class="text-right"><input type="submit" class="btn btn-warning btn-lg" value="加入購物車"></td>
 						</tr>
 					</table>

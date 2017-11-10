@@ -338,7 +338,7 @@ h3{
 	padding-bottom: 5px;
 	border-bottom:1px solid Gainsboro ;
 }
-#cart_btn td{
+#add_cart_btn td{
 	border-bottom: 0;
 }
 .big_pic{
@@ -374,6 +374,33 @@ h3{
 }
 #brand_logo{
 	 margin-top: 100px;
+}
+.cart{
+	padding:20px 5%;
+	text-align: center;
+	background-color: rgba(	220,220,220,.3);
+	margin-top: 50px;
+	margin-bottom: 100px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 17px 5px rgba(189,186,182,0.43);
+}
+.cart table{
+	width: 100%;
+}
+.cart th{
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 10px;
+	border-bottom:1px solid Gainsboro ;
+}
+.cart td{
+	padding-top: 25px;
+	padding-bottom: 10px;
+	border-bottom:1px solid Gainsboro ;
+	background: rgba(	255,250,205,.6);
+}
+.cart img{
+	width: 100%;
 }
 #enter{
 	width: 100%;

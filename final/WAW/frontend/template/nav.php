@@ -14,23 +14,33 @@
 		  <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">購物車<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
 			<li><a href="#">快速結帳</a></li>
-			<li><a href="#">購物車清單</a></li>
+			<li><a href="my_cart.php">購物車清單</a></li>
 			<li><a href="#">清空購物車</a></li>
 		  </ul>
 		  </li>
 
-<?php// if(isset($_SESSION['account'])) include_once("nav_login.php");
-	//	else{?>
-			<li><a href="#">申請會員</a></li>
-			<li><a href="login/login.php"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>&nbspSign in</a></li>
-<?php//}?>
+<?php if(isset($_SESSION['account'])){ ?>
+      <li class="dropdown">
+      <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">會員專區<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+      <li><a href="#">會員資料</a></li>
+      <li><a href="#">客服提問</a></li>
+      <li><a href="#">留言板</a></li>
+      </ul>
+      </li>
+      <li><a href="#">訂單紀錄</a></li>
+      <li><a href="template/logout.php"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Sign out</a></li>
+<?php } else{ ?>
+			<li><a href="member_apply.php">申請會員</a></li>
+			<li><a href="login.php"><i class="fa fa-sign-in fa-lg" aria-hidden="true"></i> Sign in</a></li>
+<?php } ?>
     </nav>
   </div>
 </div>
 <div class="row my-5" style="background:#e7cda7;">
   <div class="col-md-4">
     <div class="text-center" style="height:120px;">
-      <img id="logo" src="images/logo.png"</img>
+      <a href="index.php"><img id="logo" src="images/logo.png"</img></a>
     </div>
   </div>
   <div id="MenuIcon" class="text-left"><i class="fa fa-bars fa-3x" aria-hidden="true"></i></div>

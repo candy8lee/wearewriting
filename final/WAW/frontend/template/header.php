@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../asset/connection/database.php');
  ?>
 <meta charset="utf-8">
