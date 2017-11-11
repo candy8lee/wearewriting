@@ -5,12 +5,12 @@ $limit = 5;//wish item 筆數限制
 if (isset($_GET["page"])) { $page_num  = $_GET["page"]; } else { $page_num=1; };//判斷網址上有沒有頁碼、沒有就預設第一頁
 $start_from = ($page_num-1) * $limit;//wish item 從第幾筆開始//ex:(第二頁-1)*limit->[5]開始數五個出來//[0]開始
 //判定有無subcategory
-if(isset($_GET['subID'])){
+if(isset($_GET['subID']) && $_GET['subID'] != 0){
   $sql = "SELECT * FROM product WHERE subcategoryID =".$_GET['subID']." ORDER BY createdDate DESC LIMIT ".$start_from.",".$limit;// LIMIT num,num
   $sth = $db->query($sql);
   $product = $sth->fetchALL(PDO::FETCH_ASSOC);
 }
-else{
+else if(!(isset($_GET['subID'])) || $_GET['subID'] == 0){
   $sql = "SELECT * FROM product WHERE categoryID=".$_GET['cateID']." ORDER BY createdDate DESC LIMIT ".$start_from.",".$limit;// LIMIT num,num
   $sth = $db->query($sql);
   $product = $sth->fetchALL(PDO::FETCH_ASSOC);
@@ -50,9 +50,9 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-12">
           <ul class="breadcrumb my-3" style="margin-bottom:0px;margin-top:0px">
             <li class="breadcrumb-item"><a href="../product_category/list.php">主控台</a></li>
-            <li class="breadcrumb-item">商品管理</li>
-            <li class="breadcrumb-item active"><?php echo $category['category']; ?></li>
+            <li class="breadcrumb-item active">商品管理</li>
             <?php if(isset($_GET['subID'])){ ?>
+			  <li class="breadcrumb-item"><a href="list.php?cateID=<?php echo $_GET['cateID']; ?>"><?php echo $category['category']; ?></a></li>
               <li class="breadcrumb-item active">
               <?php
                 $sth = $db->query("SELECT subcategory FROM product_subcategory WHERE subcategoryID=".$_GET['subID']);
@@ -60,7 +60,9 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
                 echo $subcate['subcategory'];
               ?>
               </li>
-            <?php } ?>
+            <?php }else{ ?>
+			  <li class="breadcrumb-item active"><?php echo $category['category']; ?></li>
+			<?php } ?>
           </ul>
 		    </div>
 	  </div>
@@ -70,7 +72,7 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
         <?php foreach($subcategory as $row){ ?>
           <a href="list.php?cateID=<?php echo $_GET['cateID']; ?>&subID=<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?>。</a>
         <?php } ?>
-          <a href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i>新增</a>
+          <a href="../product_subcategory/add.php?cateID=<?php echo $_GET['cateID']; ?>"><i class="fa fa-plus-square-o" aria-hidden="true"></i>子分類新增</a>
       </div>
     </div>
 	  <div class="row">
@@ -112,9 +114,9 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
             }
           ?>
           <ul class="pagination float-right">
-            <?php if(isset($_GET['subID'])){
+            <?php if(isset($_GET['subID']) && $_GET['subID'] != 0){
                         include_once("../template/page_num_subID.php");
-                  }else include_once("../template/page_num.php"); ?>
+                  }else include_once("../template/page_num_cate.php"); ?>
           </ul>
         <?php }//if totalRows > 0 ?>
         </div>

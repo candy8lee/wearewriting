@@ -24,7 +24,7 @@
     $('.quantity-button').click(function(){
       //點擊"-"minus 就減1、"+"plus就加1
       var quantity = 1;
-      quantity = $('input[name="quantity"]').val();
+      quantity = $('input[name="Quantity"]').val();
       if($(this).find('i').hasClass('fa-plus')){
         quantity++;
         console.log("加數量="+quantity);
@@ -32,7 +32,7 @@
         quantity--;
         console.log("減數量="+quantity);
       }
-      $('input[name="quantity"]').val(quantity);
+      $('input[name="Quantity"]').val(quantity);
       });
 		$( ".product_menu" ).accordion({
 			heightStyle: "content",
@@ -83,11 +83,49 @@
 				</div>
 			</div>
 			<div id="product_details" class="col-sm-4">
-			  <form method="post" action="#" data-toggle="validator">
+			
+			<?php
+				if(isset($_GET['Existed']) && $_GET['Existed'] != null){
+				  if($_GET['Existed'] == "true") echo "<script>alert('此商品已存在購物車，請至「我的購物車」編輯數量')</script>";
+				  else echo "<script>alert('成功加入購物車！')</script>";
+				}
+			?>
+			  <form method="post" action="cart_add.php" data-toggle="validator">
 					<table class="float-left">
 						<tr>
 							<td width=40% >品名：</td>
 							<td><?php  echo $product['name'];?></td>
+						</tr>
+						<tr>
+						<?php
+							$sth = $db->query("SELECT * FROM product_category WHERE categoryID=".$_GET['cateID']);
+							$category = $sth->fetch(PDO::FETCH_ASSOC);
+							switch($category['category']){
+								case "鋼筆":
+									echo "<td>筆尖：</td>";
+									echo "<td>".$product['nib']."</td>";
+									break;
+								case "墨水":
+									echo "<td>色系：</td>";
+									echo "<td>".$product['nib']."</td>";
+									break;
+								case "鉛筆":
+									echo "<td>濃度：</td>";
+									echo "<td>".$product['nib']."</td>";
+									break;
+								case "筆記本":
+									echo "<td>內頁：</td>";
+									echo "<td>".$product['nib']."</td>";
+									break;
+								case "原子筆":
+									echo "<td>粗細：</td>";
+									echo "<td>".$product['nib']."</td>";
+									break;
+								case "":
+									break;
+							}
+						?>
+							
 						</tr>
 						<tr>
 							<td>售價：</td>
@@ -103,15 +141,25 @@
 								<div class="quantity-button">
 									<i class="fa fa-plus" aria-hidden="true"></i>
 								</div>
-								<input class="text-center" type="text" name="quantity" value="1" pattern="^[_1-9]" data-error="請輸入有效數字。" required>
-								<div class="help-block with-errors"></div>
+								<input class="text-center" type="text" name="Quantity" value="1" pattern="^[_1-9]" required>
 								<div class="quantity-button">
 									<i class="fa fa-minus" aria-hidden="true"></i>
 								</div>
 							</td>
 						</tr>
 						<tr id="add_cart_btn">
-							<td colspan="2" class="text-right"><input type="submit" class="btn btn-warning btn-lg" value="加入購物車"></td>
+							<td colspan="2" class="text-right">
+								<input type="hidden" name="Name" value="<?php echo $product['name']; ?>">
+							    <input type="hidden" name="Price" value="<?php echo $product['price']; ?>">
+							    <input type="hidden" name="Picture" value="<?php echo $product['picture']; ?>">
+							    <input type="hidden" name="ProductID" value="<?php echo $product['productID']; ?>">
+							    <input type="hidden" name="CateID" value="<?php echo $_GET['cateID'];?>">
+								<?php
+								if(isset($_GET['subID']) && $_GET['subID'] != 0)
+									echo "<input type=\"hidden\" name=\"SubID\" value=\"".$_GET['subID']."\">";
+								?>
+								<input type="submit" class="btn btn-warning btn-lg" value="加入購物車">
+							</td>
 						</tr>
 					</table>
 				</from>

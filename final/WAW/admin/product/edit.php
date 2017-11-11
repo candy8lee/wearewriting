@@ -119,7 +119,7 @@ $( function() {
         					</select>
                   <label for="subcategoryID" class="control-label">&nbsp>&nbsp子分類：</label>
         					<select name="subcategoryID" style="width: 100px;">
-                    <option>無</option>
+                    <option value="0">無</option>
                   <?php //用product_category把subcategory排列，且判斷此分類下是否有子分類，若無則不用顯示optgroup
                         foreach ( $product_category as $key=> $group) {
                           $sth = $db->query("SELECT * FROM product_subcategory WHERE categoryID=".$group['categoryID']);
