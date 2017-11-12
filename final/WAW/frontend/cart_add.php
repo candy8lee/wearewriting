@@ -17,7 +17,8 @@ if($is_existed == "false"){
   $temp['Picture']   = $_POST['Picture'];
   $temp['Price']     = $_POST['Price'];
   $temp['Quantity']  = $_POST['Quantity'];
-  $temp['CateID']     = $_POST['CateID'];
+  if(isset($_POST['CateID']) && $_POST['CateID'] != 0)
+	$temp['CateID']     = $_POST['CateID'];
   if(isset($_POST['subID']) && $_POST['subID'] != 0)
 	  $temp['SubID']     = $_POST['SubID'];
   //temp->Session
@@ -27,8 +28,9 @@ if($is_existed == "false"){
 function goto_previousPage($is_existed){
       $url = explode('?', $_SERVER['HTTP_REFERER']);
       $location = $url[0];
-      $location.= "?cateID=".$_POST['CateID'];
-      $location.= "&productID=".$_POST['ProductID'];
+      $location.= "?productID=".$_POST['ProductID'];
+	  if(isset($_POST['CateID']) && $_POST['CateID'] != 0)
+		$location.= "&cateID=".$_POST['CateID'];
       $location.= "&Existed=".$is_existed;
 	  if(isset($_POST['subID']) && $_POST['subID'] != 0)
 		  $location.= "&subID=".$_POST['SubID'];

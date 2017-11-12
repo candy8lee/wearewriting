@@ -98,7 +98,7 @@
 						</tr>
 						<tr>
 						<?php
-							$sth = $db->query("SELECT * FROM product_category WHERE categoryID=".$_GET['cateID']);
+							$sth = $db->query("SELECT * FROM product_category WHERE categoryID=".$product['categoryID']);
 							$category = $sth->fetch(PDO::FETCH_ASSOC);
 							switch($category['category']){
 								case "鋼筆":
