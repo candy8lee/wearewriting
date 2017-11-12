@@ -13,9 +13,9 @@
 		  <li class="dropdown">
 		  <a class="dropdown-toggle" type="button" data-toggle="dropdown" href="#">購物車<span class="caret"></span></a>
 		  <ul class="dropdown-menu">
-			<li><a href="#">快速結帳</a></li>
+			<li><a href="order_confirm.php">快速結帳</a></li>
 			<li><a href="my_cart.php">購物車清單</a></li>
-			<li><a href="#">清空購物車</a></li>
+			<li><a href="cart_clear_all.php">清空購物車</a></li>
 		  </ul>
 		  </li>
 

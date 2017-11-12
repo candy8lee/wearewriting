@@ -18,7 +18,7 @@ $( function() {
       $('input[name="Quantity"]').val(quantity);
       });
 		
-	} );
+} );
 </script>
 <body>
 <?php require_once('template/nav.php'); ?>
@@ -35,15 +35,14 @@ $( function() {
 			<th width="10%">單價</th>
 			<th width="10%">數量</th>
 			<th width="10%">小計</th>
-			<th width="8%">更新</th>
 			<th width="8%">刪除</th>
 		  </tr>
-		  <?php $id = $_GET['cartID'];?>
+		  <?php $id = $_GET['CartID'];?>
 		  <tr>
 			<td><img src="../upload/product/<?php echo $_SESSION['Cart'][$id]['Picture'];?>"></img></td>
 			<td class="text-left" style="padding-left:15px;"><?php echo $_SESSION['Cart'][$id]['Name'];?></td>
 			<td><?php echo $_SESSION['Cart'][$id]['Price'];?></td>
-			<td id="quan">
+			<td id="quan" class="quan">
 				<div class="quantity-button">
 					<i class="fa fa-plus" aria-hidden="true"></i>
 				</div>
@@ -58,14 +57,13 @@ $( function() {
 				echo $subtotal;
 			?>
 			元</td>
-			<td><a href="cart_edit.php"><i class="fa fa-upload cart_edit_btn"></i></a></td>
-			<td><a href="order_confirm.php"><i class="fa fa-times cart_delete_btn"></i></a></td>
+			<td><a href="cart_delete.php?CartID=<?php echo $id; ?>" onclick="if(!confirm('是否要移除此筆商品？')){return false;};"><i class="fa fa-times cart_delete_btn"></i></a></td>
 		  </tr>
 		  <tr>
 				  <td colspan="7" >
 						<input type="hidden" name="MM_update" value="QuantityEdit">
 						<input type="hidden" name="CartID" value="<?php echo $id; ?>">
-						<a href="my_cart.php" class="btn btn-warning btn-lg" type="submit" style="float:right;">確認更新</a>
+						<input class="btn btn-warning btn-lg" type="submit" style="float:right;" value="確認更新">
 					</td>
 				</tr>
 		</table>
