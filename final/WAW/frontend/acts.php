@@ -59,25 +59,38 @@
 
 <body>
 <?php require_once('template/nav.php'); ?>
+<?php
+$sth = $db->query("SELECT * FROM acts ORDER BY start DESC");
+$acts = $sth->fetchALL(PDO::FETCH_ASSOC);
+?>
 <div class="container">
+<?php foreach($acts as $row){
+	 			if($row['happy_end'] > date('Y-m-d')){?>
   <div class="row">
     <div id="tabs"><p>NEW!</p></div>
     <div id="new_acts" class="col-sm-12">
-      <div></div>
+			<script>
+			$(function(){
+				$('#new_acts').css('background-image', 'url("../upload/acts/<?php echo $row['picture']; ?>")');
+			});
+			</script>
+			<h2><?php echo $row['title']; ?></h2>
+    	<div><?php echo $row['content']; ?></div>
     </div>
   </div>
 </div>
-<div class="row">
-  <div id="tabs_past"><p>PAST</p></div>
-  <div class="col-sm-12 past_acts">
-    <div class="col-sm-3">
-      <!--點圖片會跳出之前的宣傳圖-->
-      <a href="#"><img src="images/textphoto1.jpg" alt=""></a>
-    </div>
-    <div class="col-sm-9">詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容詳細內容。</div>
-  </div>
-</div>
-
+<?php } else{ ?>
+	<div class="row">
+	  <div id="tabs_past"><p>PAST</p></div>
+	  <div class="col-sm-12 past_acts">
+	    <div class="col-sm-3">
+	      <!--點圖片會跳出之前的宣傳圖-->
+	      <div id="past_img"><a href="../upload/acts/<?php echo $row['picture']; ?>"><img src="../upload/acts/<?php echo $row['picture']; ?>" alt=""></a></div>
+	    </div>
+	    <div class="col-sm-9"><?php echo $row['content']; ?></div>
+	  </div>
+	</div>
+<?php }} ?>
 <?php include_once("template/contact.php"); ?>
 <?php include_once("template/footer.php"); ?>
 <?php include_once("template/copyright.php"); ?>

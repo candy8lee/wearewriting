@@ -11,18 +11,12 @@
   background-size: 60% 100%;
   background-repeat: no-repeat;
 }
-.cate_title_tabs p{
+.cate_title_tabs_p{
   position: relative;
-  color: #eee2d2;
+  color: white;
   text-align: center;
   font-size: 20px;
   letter-spacing: 5px;
-}
-.cate_title_tabs p::after{
-  content: "購物流程";
-  position: relative;
-  margin-left: -101px;
-  color: rgba(255,255,255,1);
 }
 @media only screen and (max-width: 768px){
   .cate_title_tabs{
@@ -35,28 +29,35 @@
 <body>
 <?php require_once('template/nav.php'); ?>
 <div class="bookmark">快速尋找分類
+<?php
+  $sth = $db -> query("SELECT * FROM q_a_category");
+  $category = $sth->fetchALL(PDO::FETCH_ASSOC);
+?>
   <ul class="breadcrumb">
-    <li class="breadcrumb-item"><a href="q_a.php#<?php?>">購物流程</a></li>
-    <li class="breadcrumb-item"><a href="q_a.php#<?php?>">購物流程</a></li>
-    <li class="breadcrumb-item"><a href="q_a.php#<?php?>">購物流程</a></li>
-    <li class="breadcrumb-item"><a href="q_a.php#<?php?>">購物流程</a></li>
+  <?php foreach ($category as $row) {?>
+    <li class="breadcrumb-item"><a href="q_a.php#<?php echo $row['categoryID']; ?>"><?php echo $row['category']; ?></a></li>
+  <?php } ?>
   </ul>
 </div>
 <div class="container">
+<?php foreach ($category as $row) {?>
   <div class="row">
-    <!--PHP資料匯入時改變CSS的content
-    https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_css_setcolor
-  -->
+    <div id="<?php echo $row['categoryID']; ?>" class="cate_title_tabs"><p class="cate_title_tabs_p"><?php echo $row['category']; ?></p></div>
+    <?php
+      $sth = $db -> query("SELECT * FROM q_a_reply WHERE categoryID=".$row['categoryID']);
+      $reply = $sth->fetchALL(PDO::FETCH_ASSOC);
+      foreach ($reply as $row2) { ?>
     <div class="col-sm-10 col-sm-offset-2">
-      <div id="<?php?>" class="cate_title_tabs"><p>購物流程</p></div>
       <div class="q_a_title">
-        title
+        <?php echo $row2['title']; ?>
       </div>
       <div class="q_a_content">
-        內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+        <?php echo $row2['reply']; ?>
       </div>
     </div>
+  <?php } ?>
   </div>
+<?php } ?>
 </div>
 <?php include_once("template/contact.php"); ?>
 <?php include_once("template/footer.php"); ?>

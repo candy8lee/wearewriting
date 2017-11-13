@@ -17,7 +17,7 @@ $( function() {
       }
       $('input[name="Quantity"]').val(quantity);
       });
-		
+
 } );
 </script>
 <body>
@@ -42,11 +42,11 @@ $( function() {
 			<td><img src="../upload/product/<?php echo $_SESSION['Cart'][$id]['Picture'];?>"></img></td>
 			<td class="text-left" style="padding-left:15px;"><?php echo $_SESSION['Cart'][$id]['Name'];?></td>
 			<td><?php echo $_SESSION['Cart'][$id]['Price'];?></td>
-			<td id="quan" class="quan">
+			<td class="text-center">
 				<div class="quantity-button">
 					<i class="fa fa-plus" aria-hidden="true"></i>
 				</div>
-				<input class="text-center" type="text" name="Quantity" value="<?php echo $_SESSION['Cart'][$id]['Quantity'];?>" pattern="^[_1-9]" required>
+				<input id="quan" class="text-center" type="text" name="Quantity" value="<?php echo $_SESSION['Cart'][$id]['Quantity'];?>" pattern="^[_1-9]" required>
 				<div class="quantity-button">
 					<i class="fa fa-minus" aria-hidden="true"></i>
 				</div>

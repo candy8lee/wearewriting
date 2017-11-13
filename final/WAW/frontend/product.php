@@ -83,7 +83,7 @@
 				</div>
 			</div>
 			<div id="product_details" class="col-sm-4">
-			
+
 			<?php
 				if(isset($_GET['Existed']) && $_GET['Existed'] != null){
 				  if($_GET['Existed'] == "true") echo "<script>alert('此商品已存在購物車，請至「我的購物車」編輯數量')</script>";
@@ -125,7 +125,7 @@
 									break;
 							}
 						?>
-							
+
 						</tr>
 						<tr>
 							<td>售價：</td>
@@ -137,11 +137,11 @@
 						</tr>
 						<tr>
 							<td>數量：</td>
-							<td id="quan">
+							<td>
 								<div class="quantity-button">
 									<i class="fa fa-plus" aria-hidden="true"></i>
 								</div>
-								<input class="text-center" type="text" name="Quantity" value="1" pattern="^[_1-9]" required>
+								<input id="quan" class="text-center" type="text" name="Quantity" value="1" pattern="^[_1-9]" required>
 								<div class="quantity-button">
 									<i class="fa fa-minus" aria-hidden="true"></i>
 								</div>

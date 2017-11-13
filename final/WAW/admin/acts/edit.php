@@ -2,10 +2,22 @@
 require_once("../template/login_check.php");
 require_once("../../asset/connection/database.php");
 if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
+
+  if(isset($_FILES['picture']['name']) && $_FILES['picture']['name'] != null){
+    if (!file_exists('../../upload/acts')) mkdir('../../upload/acts', 0755, true);
+    $fileTYPE = strrchr($_FILES['picture']['name'],".");//查找字串，遇到"."停止->分割副檔名
+    $filename = $_POST['start']."_".$_POST['happy_end'].$fileTYPE;
+    move_uploaded_file($_FILES['picture']['tmp_name'] , "../../upload/acts/".$filename);   // 搬移上傳檔案
+    $picture1 = "../../upload/acts/".$_POST['picture1'];
+    unlink($picture1);//刪除之前上傳的picture
+  }else{
+    $filename = $_POST['picture1'];
+  }
   $sql= "UPDATE  acts SET
                         start= :start,
                         happy_end= :happy_end,
                         title= :title,
+                        picture= :picture,
                         content= :content,
                         updatedDate= :updatedDate,
                         author= :author
@@ -14,6 +26,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
   $sth ->bindParam(":start", $_POST['start'], PDO::PARAM_STR);
   $sth ->bindParam(":happy_end", $_POST['happy_end'], PDO::PARAM_STR);
   $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
+  $sth ->bindParam(":picture", $filename, PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
   $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
   $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
@@ -64,7 +77,7 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
       </div>
       <div class="row">
         <div class="col-md-12">
-          <form class="" method="post" action="edit.php"  data-toggle="validator">
+          <form class="" method="post" action="edit.php"  data-toggle="validator"  enctype="multipart/form-data">
             <div class="form-group">
               <div class="row">
                 <div class="col-sm-2">
@@ -95,6 +108,18 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="title" name="title" value="<?php echo $acts['title']; ?>" data-minlength="3" data-error="標題至少三字元" required>
                   <div class="help-block with-errors col-md-12" style="color:red;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-8">
+                  <label for="title" class="control-label">宣傳圖 - *寬高比請5:2 ex: 500px*200px - 1000px*400px</label>
+                  <img src="../../upload/acts/<?php echo $acts['picture']; ?>" width="100%"></img>
+                </div>
+                <div class="col-sm-4">
+                  <input type="file" class="form-control" id="picture" name="picture">
+				          <input type="hidden" name="picture1" value="<?php echo $acts['picture']; ?>"><!--預防沒選picture送出空資料-->
                 </div>
               </div>
             </div>

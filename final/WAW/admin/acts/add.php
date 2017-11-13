@@ -2,12 +2,20 @@
 require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
-  $sql= "INSERT INTO acts( start, happy_end, title, content, createdDate, author)
-                    VALUES ( :start, :happy_end, :title, :content, :createdDate, :author)";
+
+  if(isset($_FILES['picture']['name']) && $_FILES['picture']['name'] != null){
+    if (!file_exists('../../upload/acts')) mkdir('../../upload/acts', 0755, true);
+    $fileTYPE = strrchr($_FILES['picture']['name'],".");//查找字串，遇到"."停止->分割副檔名
+    $filename = $_POST['start']."_".$_POST['happy_end'].$fileTYPE;
+    move_uploaded_file($_FILES['picture']['tmp_name'] , "../../upload/acts/".$filename);   // 搬移上傳檔案
+  }
+  $sql= "INSERT INTO acts( start, happy_end, title, picture, content, createdDate, author)
+                    VALUES ( :start, :happy_end, :title, :picture, :content, :createdDate, :author)";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":start", $_POST['start'], PDO::PARAM_STR);
   $sth ->bindParam(":happy_end", $_POST['happy_end'], PDO::PARAM_STR);
   $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
+  $sth ->bindParam(":picture",$filename, PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
   $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
   $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
@@ -87,6 +95,16 @@ include_once("../template/header.php");
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="title" name="title" data-minlength="3" data-error="標題至少三字元" required>
                   <div class="help-block with-errors col-md-12" style="color:brown;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-sm-2">
+                  <label for="title" class="control-label">宣傳圖 - *寬高比請5:2 ex: 500px*200px - 1000px*400px</label>
+                </div>
+                <div class="col-sm-10">
+                  <input type="file" class="form-control" id="picture" name="picture">
                 </div>
               </div>
             </div>
