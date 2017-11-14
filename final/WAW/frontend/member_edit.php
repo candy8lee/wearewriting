@@ -13,6 +13,18 @@ $( function() {
 		minDate: new Date(1901, 1 - 1, 1)
 	});
 } );
+$(function(){
+	$('PW_btn').click(function(){
+		$('PW_change').css('display', 'block');
+		$('PW_cancel').css('display', 'block');
+		$('PW_btn').css('display', 'none');
+	});
+	$('PW_cancel').click(function(){
+		$('PW_change').css('display', 'none');
+		$('PW_cancel').css('display', 'none');
+		$('PW_btn').css('display', 'block');
+	});
+});
 </script>
 <body>
 <?php require_once('template/nav.php'); ?>
@@ -70,16 +82,24 @@ $( function() {
 						<input type="number" id="phone" name="phone" value="<?php echo $member['phone']; ?>" required>
 					</div>
 				</div>
-				<div class="text-right">
-					<div class="row">
-						<div class="col-sm-12">
-							<span>新密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
-						</div>
+				<div class="row text-center">
+					<div class="col-sm-10">
+						<p id="PW_btn" class="btn btn-danger">修改密碼</p>
 					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<span>確認密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
-						</div>
+				</div>
+				<div id="PW_change" class="row">
+					<div class="col-sm-10">
+						<span>新密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-10">
+						<span>確認密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
+					</div>
+				</div>
+				<div class="row text-center">
+					<div class="col-sm-10">
+						<p id="PW_cancel" class="btn btn-danger">取消</p>
 					</div>
 				</div>
 				<div class="text-right">

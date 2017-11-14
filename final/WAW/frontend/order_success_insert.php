@@ -20,18 +20,17 @@ $sth = $db->query("SELECT * FROM customer_order WHERE memberID =".$_POST['member
 $last_order = $sth->fetch(PDO::FETCH_ASSOC);
 
 for($i = 0; $i < count($_SESSION['Cart']); $i++){
-$sql= "INSERT INTO order_details( orderID, name, cateID, picture, price, productID, quantity, createdDate)
-								 VALUES ( :orderID, :name, :cateID, :picture, :price, :productID, :quantity, :createdDate)";
-$sth = $db ->prepare($sql);
-$sth ->bindParam(":orderID", $last_order['orderID'], PDO::PARAM_INT);
-$sth ->bindParam(":picture", $_SESSION['Cart'][$i]['Picture'], PDO::PARAM_STR);
-$sth ->bindParam(":name", $_SESSION['Cart'][$i]['Name'], PDO::PARAM_STR);
-$sth ->bindParam(":cateID", $_SESSION['Cart'][$i]['CateID'], PDO::PARAM_INT);
-$sth ->bindParam(":price", $_SESSION['Cart'][$i]['Price'], PDO::PARAM_STR);
-$sth ->bindParam(":productID", $_SESSION['Cart'][$i]['ProductID'], PDO::PARAM_STR);
-$sth ->bindParam(":quantity", $_SESSION['Cart'][$i]['Quantity'], PDO::PARAM_STR);
-$sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
-$sth -> execute();
+	$sql= "INSERT INTO order_details( orderID, cateID, picture, price, productID, quantity, createdDate)
+									 VALUES ( :orderID, :cateID, :picture, :price, :productID, :quantity, :createdDate)";
+	$sth = $db ->prepare($sql);
+	$sth ->bindParam(":orderID", $last_order['orderID'], PDO::PARAM_INT);
+	$sth ->bindParam(":picture", $_SESSION['Cart'][$i]['Picture'], PDO::PARAM_STR);
+	$sth ->bindParam(":cateID", $_SESSION['Cart'][$i]['CateID'], PDO::PARAM_INT);
+	$sth ->bindParam(":price", $_SESSION['Cart'][$i]['Price'], PDO::PARAM_STR);
+	$sth ->bindParam(":productID", $_SESSION['Cart'][$i]['ProductID'], PDO::PARAM_STR);
+	$sth ->bindParam(":quantity", $_SESSION['Cart'][$i]['Quantity'], PDO::PARAM_STR);
+	$sth ->bindParam(":createdDate", $last_order['createdDate'], PDO::PARAM_STR);
+	$sth -> execute();
 }
 
 
