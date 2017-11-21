@@ -85,12 +85,12 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "QuantityEdit"){
 		    </div>
 		    <div class="col-sm-10">
 				<input type="text" class="form-control" id="phone" name="phone" value="<?php  echo $member['phone']; ?>" required>
-				<input type="hidden" name="orderNO" value="<?php  echo "WAW".date('ymdHis'); ?>">
-				<input type="hidden" name="orderDate" value="<?php  echo date('y-m-d H:i:s'); ?>">
+				<input type="hidden" name="orderNO" value="<?php  echo "WAW".date('YmdHis'); ?>">
+				<input type="hidden" name="orderDate" value="<?php  echo date('Y-m-d H:i:s'); ?>">
 				<input type="hidden" name="memberID" value="<?php  echo $member['memberID']; ?>">
 				<input type="hidden" name="totalPrice" value="<?php  echo $total+$shipping ?>">
 				<input type="hidden" name="shipping" value="<?php  echo $shipping; ?>">
-				<input type="hidden" name="createdDate" value="<?php  echo date('y-m-d H:i:s'); ?>">
+				<input type="hidden" name="createdDate" value="<?php  echo date('Y-m-d H:i:s'); ?>">
 		    </div>
 		</div>
 		<div class=" row">

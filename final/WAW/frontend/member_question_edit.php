@@ -2,21 +2,27 @@
 <head>
 <?php require_once('template/header.php'); ?>
 <?php
-if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
-  $sql= "INSERT INTO member_question( createdDate, title, content, memberID)
-                VALUES ( :createdDate, :title, :content, :memberID)";
+if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
+  $sql= "UPDATE member_question SET
+						            title= :title,
+                        content= :content
+                        WHERE questionID= :questionID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":title", $_POST['title'], PDO::PARAM_STR);
   $sth ->bindParam(":content", $_POST['content'], PDO::PARAM_STR);
-  $sth ->bindParam(":memberID", $_POST['memberID'], PDO::PARAM_INT);
-  $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
+  $sth ->bindParam(":questionID", $_POST['questionID'], PDO::PARAM_INT);
   $sth -> execute();
   header('Location: member_question.php');
 }
+
 $sth = $db -> query("SELECT * FROM member WHERE account='".$_SESSION['account']."'");
 $member = $sth ->fetch(PDO::FETCH_ASSOC);
+
 $sth = $db -> query("SELECT * FROM member_question WHERE memberID=".$member['memberID']." ORDER BY createdDate DESC");
-$question = $sth ->fetchALL(PDO::FETCH_ASSOC);
+$questions = $sth ->fetchALL(PDO::FETCH_ASSOC);
+
+$sth = $db -> query("SELECT * FROM member_question WHERE questionID=".$_GET['questionID']);
+$question = $sth ->fetch(PDO::FETCH_ASSOC);
 ?>
 </head>
 <body>
@@ -25,17 +31,17 @@ $question = $sth ->fetchALL(PDO::FETCH_ASSOC);
     <h1 class="text-center">We Are Writing</h1>
 </div>
 <hr></hr>
-<h3 class="text-center">會員專區 - 客服留言 / <a href="#reply">歷史紀錄<a/></h3>
+<h3 class="text-center">客服提問 - 編輯 / <a href="#reply">歷史紀錄<a/></h3>
 <div class="container">
   <div class="row cart">
-		<form action="member_question.php" method="post" data-toggle="validator">
+		<form action="member_question_edit.php" method="post" data-toggle="validator">
 			<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 cart">
 				<div class="row">
           <div class="col-sm-2">
             <label for="title">標題*：</label>
           </div>
           <div class="col-sm-8 text-left">
-            <input type="text" name="title" placeholder="請輸入問題類型" required>
+            <input type="text" name="title" value="<?php echo $question['title']; ?>" required>
           </div>
 				</div>
         <div class="row">
@@ -43,15 +49,14 @@ $question = $sth ->fetchALL(PDO::FETCH_ASSOC);
             <label for="content">內容*：</label>
           </div>
           <div class="col-sm-8">
-            <textarea type="text" name="content" required></textarea>
+            <textarea type="text" name="content" required><?php echo $question['content']; ?></textarea>
           </div>
 				</div>
         <div class="row">
           <div class="col-sm-offset-2 col-sm-10 text-right">
-            <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H:i:s'); ?>">
-            <input type="hidden" name="memberID" value="<?php echo $member['memberID']; ?>">
-            <input type="hidden" name="MM_insert" value="INSERT">
-            <button class="btn btn-warning btn-lg" type="submit" name="button">送出</button>
+            <input type="hidden" name="MM_update" value="UPDATE">
+            <input type="hidden" name="questionID" value="<?php echo $_GET['questionID']; ?>">
+            <button class="btn btn-warning btn-lg" type="submit" name="button">更新</button>
           </div>
         </div>
 			</div>
@@ -67,7 +72,7 @@ $question = $sth ->fetchALL(PDO::FETCH_ASSOC);
             <th width="8%">編輯</th>
             <th width="8%">取消</th>
           </tr>
-        <?php foreach ($question as $row) {?>
+        <?php foreach ($questions as $row) {?>
           <tr>
             <td><?php echo $row['createdDate']; ?></td>
             <td><?php echo $row['title']; ?></td>

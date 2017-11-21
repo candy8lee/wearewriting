@@ -62,7 +62,7 @@ $product_category = $sth->fetch(PDO::FETCH_ASSOC);
                 </div>
                 <div class="col-sm-10 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
-                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H:i:s') ?>">
                   <input type="hidden" name="categoryID" value="<?php echo $product_category['categoryID']; ?>">
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <button type="submit" class="btn btn-warning">送出</button>

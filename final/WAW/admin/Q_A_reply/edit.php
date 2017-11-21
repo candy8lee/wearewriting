@@ -100,7 +100,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
                 </div>
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">
-                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H:i:s') ?>">
         				  <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
         				  <input type="hidden" name="replyID" value="<?php echo $_GET['replyID']; ?>">
                   <button type="submit" class="btn btn-warning">送出</button>

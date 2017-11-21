@@ -84,7 +84,7 @@ print_r($question['questionID']);
                   <input type="hidden" name="status" value="1">
                   <input type="hidden" name="questionID" value="<?php echo $question['questionID']; ?>">
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                  <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H:i:s') ?>">
                   <input type="hidden" name="page" value="<?php echo $_GET['page']; ?>">
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>

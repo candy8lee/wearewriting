@@ -25,7 +25,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 <div class="container cart">
 	<h3 class="text-left">加入會員</h3>
 	<div class="row">
-        <div class="col-md-12">
+    <div class="col-md-12">
 			<form action="member_apply.php" method="post" data-toggle="validator">
 				<div class="form-group">
 					<div class="col-sm-2">

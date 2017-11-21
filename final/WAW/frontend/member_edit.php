@@ -14,15 +14,15 @@ $( function() {
 	});
 } );
 $(function(){
-	$('PW_btn').click(function(){
-		$('PW_change').css('display', 'block');
-		$('PW_cancel').css('display', 'block');
-		$('PW_btn').css('display', 'none');
+	$('#PW_btn').click(function(){
+		$('#PW_change').css('display', 'block');
+		$('#PW_cancel').css('display', 'block');
+		$('#PW_btn').css('display', 'none');
 	});
-	$('PW_cancel').click(function(){
-		$('PW_change').css('display', 'none');
-		$('PW_cancel').css('display', 'none');
-		$('PW_btn').css('display', 'block');
+		$('#PW_cancel').click(function(){
+			$('#PW_change').css('display', 'none');
+			$('#PW_cancel').css('display', 'none');
+			$('#PW_btn').css('display', 'block');
 	});
 });
 </script>
@@ -87,14 +87,17 @@ $(function(){
 						<p id="PW_btn" class="btn btn-danger">修改密碼</p>
 					</div>
 				</div>
-				<div id="PW_change" class="row">
-					<div class="col-sm-10">
-						<span>新密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
+				<div id="PW_change">
+					<div class="row">
+						<div class="col-sm-10">
+							<span>新密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-10">
-						<span>確認密碼：</span><input type="password" id="password" name="password" value="<?php echo $member['password']; ?>" required>
+					<div class="row">
+						<div class="col-sm-10">
+							<span>確認密碼：</span><input type="password" id="ConfirmPas" name="ConfirmPas" data-match="#password" value="<?php echo $member['password']; ?>" data-match-error="密碼不符，請重新輸入。" required>
+							<div class="help-block with-errors"></div>
+						</div>
 					</div>
 				</div>
 				<div class="row text-center">

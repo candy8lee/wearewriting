@@ -97,7 +97,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
                   <div class="col-sm-10 text-right">
                     <input type="hidden" name="MM_insert" value="INSERT">
                     <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
-                    <input type="hidden" name="createdDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                    <input type="hidden" name="createdDate" value="<?php echo date('Y-m-d H:i:s') ?>">
                     <button type="submit" class="btn btn-warning">送出</button>
                   </div>
                 </div>

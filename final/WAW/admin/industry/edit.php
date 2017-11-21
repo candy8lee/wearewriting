@@ -108,7 +108,7 @@ $industry = $sth->fetch(PDO::FETCH_ASSOC);
                   <input type="hidden" name="MM_update" value="UPDATE">
                   <input type="hidden" name="industryID" value="<?php echo
                   $industry['industryID']; ?>">
-                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H:i:s') ?>">
 				          <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>

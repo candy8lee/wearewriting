@@ -143,7 +143,7 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
                     <input type="hidden" name="MM_update" value="UPDATE">
                     <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                     <input type="hidden" name="actID" value="<?php echo $acts['actID']; ?>">
-                    <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                    <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H:i:s') ?>">
                     <button type="submit" class="btn btn-warning">送出更新</button>
                   </div>
                 </div>

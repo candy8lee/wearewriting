@@ -242,7 +242,7 @@ $( function() {
                   <input type="hidden" name="productID" value="<?php echo $_GET['productID']; ?>">
                   <input type="hidden" name="author" value="<?php echo $_SESSION['account'] ?>">
                   <input type="hidden" name="cateID" value="<?php echo $_GET['cateID']; ?>">
-                  <input type="hidden" name="updatedDate" value="<?php echo date('y-m-d H:i:s') ?>">
+                  <input type="hidden" name="updatedDate" value="<?php echo date('Y-m-d H:i:s') ?>">
                   <button type="submit" class="btn btn-warning">送出</button>
                 </div>
               </div>
