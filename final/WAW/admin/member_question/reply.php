@@ -30,7 +30,6 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
 $sth = $db->query("SELECT * FROM member_question WHERE questionID=".$_GET['questionID']);
 $question = $sth->fetch(PDO::FETCH_ASSOC);
-print_r($question['questionID']);
 ?>
 
 <!DOCTYPE html>

@@ -50,7 +50,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 						<label for="password" class="control-label">密碼</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="password" name="password" pattern="^(?=^.{8,}$)((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.*$" data-minlength="6" required data-error="密碼長度必須有八碼，並且包含至少一個小寫字母與一個大寫字母和一個數字">
+						<input type="password" class="form-control" id="password" name="password" pattern="^(?=^.{8,}$)((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.*$" data-minlength="8" required data-error="密碼長度必須至少有八碼，並且包含至少一個小寫字母與一個大寫字母和一個數字。">
 						<div class="help-block with-errors"></div>
 					</div>
 				</div>

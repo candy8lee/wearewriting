@@ -41,7 +41,7 @@ $totalRows = count($question);
 	  </div>
     <div class="row">
         <div class="col-md-12 text-right my-3">
-          Sort by:&nbsp&nbsp
+          Sort by:　
             <a href="list.php">全部顯示。</a>
             <a href="list.php?status=0">新提問。</a>
             <a href="list.php?status=1">已回覆。</a>
@@ -99,7 +99,15 @@ $totalRows = count($question);
                   }
                  ?>
                 </td>
+              <?php if($row['status'] == 1){ ?>
+              <?php
+                $sth = $db->query("SELECT * FROM member_reply WHERE questionID=".$row['questionID']);
+                $reply = $sth->fetch(PDO::FETCH_ASSOC);
+              ?>
+                <td><a href="reply_edit.php?questionID=<?php echo $row['questionID']; ?>&status=<?php echo $row['status']; ?>&page=<?php echo $page_num; ?>&replyID=<?php echo $reply['replyID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+              <?php } else{ ?>
                 <td><a href="reply.php?questionID=<?php echo $row['questionID']; ?>&status=<?php echo $row['status']; ?>&page=<?php echo $page_num; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+              <?php } ?>
               </tr>
             <?php } ?>
             </tbody>

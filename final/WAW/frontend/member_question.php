@@ -75,7 +75,7 @@ $question = $sth ->fetchALL(PDO::FETCH_ASSOC);
             $sth = $db -> query("SELECT * FROM member_reply WHERE replyID=".$row['replyID']);
             $reply = $sth ->fetch(PDO::FETCH_ASSOC);
           ?>
-            <td><?php echo $reply['content']; ?>...read more</td>
+            <td><?php echo $reply['content']; ?></td>
             <td></td>
             <td></td>
           <?php }else{
