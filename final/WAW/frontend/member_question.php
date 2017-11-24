@@ -35,7 +35,7 @@ $question = $sth ->fetchALL(PDO::FETCH_ASSOC);
             <label for="title">標題*：</label>
           </div>
           <div class="col-sm-8 text-left">
-            <input type="text" name="title" placeholder="請輸入問題類型" required>
+            <input type="text" name="title" placeholder="請輸入問題類型" value="<?php if(isset($_GET['orderNO'])) echo "訂單編號：".$_GET['orderNO']; ?>" required>
           </div>
 				</div>
         <div class="row">

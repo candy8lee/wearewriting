@@ -17,23 +17,22 @@ $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
 $sth -> execute();
 
 $sth = $db->query("SELECT * FROM customer_order WHERE memberID =".$_POST['memberID']." ORDER BY createdDate DESC");
-$last_order = $sth->fetch(PDO::FETCH_ASSOC);
+$last_order = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 for($i = 0; $i < count($_SESSION['Cart']); $i++){
 	$sql= "INSERT INTO order_details( orderID, cateID, picture, price, productID, quantity, createdDate)
 									 VALUES ( :orderID, :cateID, :picture, :price, :productID, :quantity, :createdDate)";
 	$sth = $db ->prepare($sql);
-	$sth ->bindParam(":orderID", $last_order['orderID'], PDO::PARAM_INT);
+	$sth ->bindParam(":orderID", $last_order[0]['orderID'], PDO::PARAM_INT);
 	$sth ->bindParam(":picture", $_SESSION['Cart'][$i]['Picture'], PDO::PARAM_STR);
 	$sth ->bindParam(":cateID", $_SESSION['Cart'][$i]['CateID'], PDO::PARAM_INT);
 	$sth ->bindParam(":price", $_SESSION['Cart'][$i]['Price'], PDO::PARAM_STR);
 	$sth ->bindParam(":productID", $_SESSION['Cart'][$i]['ProductID'], PDO::PARAM_STR);
 	$sth ->bindParam(":quantity", $_SESSION['Cart'][$i]['Quantity'], PDO::PARAM_STR);
-	$sth ->bindParam(":createdDate", $last_order['createdDate'], PDO::PARAM_STR);
+	$sth ->bindParam(":createdDate", $last_order[0]['createdDate'], PDO::PARAM_STR);
 	$sth -> execute();
 }
 
-
-//unset($_SESSION['Cart']);
+unset($_SESSION['Cart']);
 header('Location: order_success.php');
  ?>

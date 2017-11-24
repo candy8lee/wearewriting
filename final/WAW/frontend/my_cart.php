@@ -21,7 +21,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == "QuantityEdit"){
       <tr>
         <th width="15%">商品圖片</th>
         <th width="30%">品名</th>
-		<th width="10%">單價</th>
+		    <th width="10%">單價</th>
         <th width="10%">數量</th>
         <th width="10%">小計</th>
         <th width="8%">更新</th>

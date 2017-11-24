@@ -153,7 +153,7 @@
 							    <input type="hidden" name="Price" value="<?php echo $product['price']; ?>">
 							    <input type="hidden" name="Picture" value="<?php echo $product['picture']; ?>">
 							    <input type="hidden" name="ProductID" value="<?php echo $product['productID']; ?>">
-							    <input type="hidden" name="CateID" value="<?php echo $_GET['cateID'];?>">
+							    <input type="hidden" name="CateID" value="<?php echo $product['categoryID'];?>">
 								<?php
 								if(isset($_GET['subID']) && $_GET['subID'] != 0)
 									echo "<input type=\"hidden\" name=\"SubID\" value=\"".$_GET['subID']."\">";

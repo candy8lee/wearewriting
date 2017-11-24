@@ -2,13 +2,6 @@
 <head>
 <?php require_once('template/header.php'); ?>
 </head>
-<?php
-if(isset($_POST['MM_update']) && $_POST['MM_update'] == "QuantityEdit"){
-	$id= $_POST['CartID'];
-	if($_POST['Quantity'] <= 0) $_POST['Quantity'] = 1;
-	$_SESSION['Cart'][$id]['Quantity'] = $_POST['Quantity'];
-}
-?>
 <body>
 <?php require_once('template/nav.php'); ?>
 <div class="">

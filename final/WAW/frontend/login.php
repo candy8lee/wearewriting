@@ -6,6 +6,7 @@ if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 	$member = $sth -> fetch(PDO::FETCH_ASSOC) ;
 	if(isset($member) && $member != null){
 			$_SESSION['account'] = $member['account'];
+      $_SESSION['memberID'] = $member['memberID'];
 			header('Location: index.php');
 	}else{
 			$msg = '帳號或密碼有誤，請重新輸入。';

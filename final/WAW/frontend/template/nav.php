@@ -28,7 +28,7 @@
       <li><a href="#">留言板</a></li>
       </ul>
       </li>
-      <li><a href="#">訂單紀錄</a></li>
+      <li><a href="order_list.php">訂單紀錄</a></li>
       <li><a href="template/logout.php"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>Sign out</a></li>
 <?php } else{ ?>
 			<li><a href="member_apply.php">申請會員</a></li>
