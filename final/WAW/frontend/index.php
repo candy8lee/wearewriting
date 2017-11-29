@@ -101,7 +101,7 @@
   </div>
 </div>
 <div id="enter" class="text-center">
-  <a href="product.php">ENTER</a>
+  <a href="product_index.php">ENTER</a>
 </div>
 <?php include_once("template/contact.php"); ?>
 <?php include_once("template/footer.php"); ?>

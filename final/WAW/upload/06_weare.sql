@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2017-11-09 12:55:07
--- 伺服器版本: 10.1.25-MariaDB
--- PHP 版本： 5.6.31
+-- 產生時間： 2017-11-29 11:37:21
+-- 伺服器版本: 10.1.28-MariaDB
+-- PHP 版本： 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -129,7 +129,11 @@ CREATE TABLE `brand` (
 --
 
 INSERT INTO `brand` (`brandID`, `logo`, `name`, `content`, `nation`, `createdDate`, `updatedDate`, `author`) VALUES
-(8, 'Robert Oster20171101101351.png', 'Robert Oster', '<p>Robert Oster</p>', 'United States', '17-11-01 10:13:37', NULL, 0);
+(8, 'Robert Oster20171101101351.png', 'Robert Oster', '<p>Robert Oster</p>', 'United States', '17-11-01 10:13:37', NULL, 0),
+(9, 'Noodler\'s20171129172738.jpg', 'Noodler\'s', '<p>Noodler\'s</p>', 'United States', '2017-11-29 17:26:15', NULL, 0),
+(10, 'Pilot20171129173046.png', 'Pilot', '<p>Pilot</p>', 'Japan', '2017-11-29 17:27:47', NULL, 0),
+(11, 'Pelikan20171129173151.png', 'Pelikan', '<p>Pelikan</p>', 'Germany', '2017-11-29 17:30:49', NULL, 0),
+(12, 'J.Herbin20171129173348.png', 'J.Herbin', '<p>J.Herbin</p>', 'France', '2017-11-29 17:31:52', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -409,21 +413,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productID`, `categoryID`, `subcategoryID`, `brandID`, `name`, `picture`, `picture2`, `picture3`, `picture4`, `price`, `nib`, `decription`, `createdDate`, `updatedDate`, `store`, `sold`, `author`) VALUES
-(1, 12, 4, 0, 'test', '4_20171102155206.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
-(2, 12, 4, 0, 'test', '4_20171102155223.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
-(3, 12, 4, 0, 'test', '4_20171102155230.jpg', NULL, NULL, NULL, 123, 'tesr', '<p>fe</p>', '17-11-02 15:51:17', NULL, 12, 0, 'admin'),
-(4, 13, 10, 0, 'test', '10_20171102155300.gif', NULL, NULL, NULL, 123, '123', '<p>13</p>', '17-11-02 15:52:33', NULL, 12, 0, 'admin'),
-(5, 13, 11, 0, '123', '11_20171102155333.jpg', NULL, NULL, NULL, 123, '123', '<p>123</p>', '17-11-02 15:53:13', NULL, 123, 0, 'admin'),
-(6, 11, 0, 0, '11111111', '11_20171102160346.gif', NULL, NULL, NULL, 111111111, '111111111', '<p>111111111</p>', '17-11-02 16:03:27', NULL, 11, 0, 'admin'),
-(7, 11, 0, 8, '1', '11_20171103141702_37.jpg', '11_20171103141702_26.png', NULL, NULL, 1, '1', '<p>1</p>', '17-11-03 14:16:45', NULL, 1, 0, 'test'),
-(8, 11, 0, 8, '1', '11_20171103141844_29.jpg', '11_20171103141844_90.png', NULL, NULL, 1, '1', '<p>1</p>', '17-11-03 14:16:45', NULL, 1, 0, 'test'),
-(9, 13, 0, 8, '3', '13_20171103142004_68.gif', NULL, NULL, NULL, 3, '3', '<p>3</p>', '17-11-03 14:19:41', NULL, 0, 0, 'test'),
-(14, 16, 0, 8, '0', '16_20171103144033_48.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:40:27', NULL, 0, 0, 'test'),
-(15, 14, 0, 8, '0', '14_20171103144247_55.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:42:40', NULL, 0, 0, 'test'),
-(16, 14, 0, 8, '0', '14_20171103144340_39.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:43:30', NULL, 0, 0, 'test'),
-(17, 14, 0, 8, '0', '14_20171103144410_39.jpg', NULL, NULL, NULL, 0, '0', '<p>0</p>', '17-11-03 14:44:02', NULL, 0, 0, 'test'),
-(18, 11, 2, 8, '5', '11_20171103165436_36.jpg', '11_20171103160454_29.gif', '', '', 5, '5', '<p>5</p>', '17-11-03 16:04:34', '17-11-03 16:54:28', 0, 0, 'admin'),
-(19, 11, 0, 8, 'try', '11_20171107192353_54.jpg', '11_20171107192353_61.jpg', NULL, NULL, 123, '123', '<p>123</p>', '17-11-07 19:23:22', NULL, 0, 0, 'admin');
+(20, 12, 4, 8, 'ROBERT OSTER AFRICAN GOLD', '12_20171129170600_87.jpg', '12_20171129170600_42.jpg', NULL, NULL, 550, '黃', '<p class=\"description-tab-product-name\">ROBERT OSTER AFRICAN GOLD (50ML BOTTLED INK)</p>\r\n<p class=\"description-tab-full-desc\">50ml plastic bottle of Robert Oster Signature fountain pen ink in the color African Gold.&nbsp;<br /><br />A message from Robert Oster about this ink: \"African Gold was developed to offer our support for WorldVision in Ethiopia on behalf of our community of ink enthusiasts.\" A portion of the sale of each bottle of ink is donated to WorldVision. For more information about WorldVision, you can check out their website at&nbsp;<a href=\"https://www.worldvision.org/\" target=\"_blank\" rel=\"noopener\">www.WorldVision.org</a>.&nbsp;<br /><br />Robert Oster Signature Inks are handmade in Australia. The recyclable PET bottles are manufactured in Australia\'s first carbon neutral plastics plant.&nbsp;<br /><br />A message from Robert Oster:&nbsp;<br /><br /><em>My great interest in fountain pen inks &ndash; and by extension inks that combine many creative applications &ndash; began with the birth of my love of fountain pens in 1989.&nbsp;<br /><br />As Robert Oster Signature Inks are quite recent to the market, think of the interim between 1989 and today, as the fertile ground into which my present love of all things ink was seeded and grown.&nbsp;<br /><br />The contents and packaging of my Inks are all nature friendly and the colours a genuine inventory of the Australian palette.&nbsp;<br /><br />Robert Oster Signature originates from one of the most famous wine producing regions of the world, the Coonawarra district of South Australia, an idyllic setting with great influence on the senses. There is my inspiration. It&rsquo;s a joy to share it with you.</em></p>', '2017-11-29 17:03:02', NULL, 5, 0, 'admin');
 
 -- --------------------------------------------------------
 
@@ -696,101 +686,121 @@ ALTER TABLE `users`
 --
 ALTER TABLE `about`
   MODIFY `pageID` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- 使用資料表 AUTO_INCREMENT `acts`
 --
 ALTER TABLE `acts`
   MODIFY `actID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- 使用資料表 AUTO_INCREMENT `boards`
 --
 ALTER TABLE `boards`
   MODIFY `boardsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用資料表 AUTO_INCREMENT `boards_reply`
 --
 ALTER TABLE `boards_reply`
   MODIFY `boards_replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用資料表 AUTO_INCREMENT `brand`
 --
 ALTER TABLE `brand`
-  MODIFY `brandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `brandID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- 使用資料表 AUTO_INCREMENT `customer_order`
 --
 ALTER TABLE `customer_order`
   MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用資料表 AUTO_INCREMENT `industry`
 --
 ALTER TABLE `industry`
   MODIFY `industryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- 使用資料表 AUTO_INCREMENT `makeawish`
 --
 ALTER TABLE `makeawish`
   MODIFY `wishID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- 使用資料表 AUTO_INCREMENT `member`
 --
 ALTER TABLE `member`
   MODIFY `memberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
 --
 -- 使用資料表 AUTO_INCREMENT `member_question`
 --
 ALTER TABLE `member_question`
   MODIFY `questionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用資料表 AUTO_INCREMENT `member_reply`
 --
 ALTER TABLE `member_reply`
   MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- 使用資料表 AUTO_INCREMENT `nation`
 --
 ALTER TABLE `nation`
   MODIFY `nationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- 使用資料表 AUTO_INCREMENT `news`
 --
 ALTER TABLE `news`
   MODIFY `newsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
 --
 -- 使用資料表 AUTO_INCREMENT `order_details`
 --
 ALTER TABLE `order_details`
   MODIFY `order_detailsID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- 使用資料表 AUTO_INCREMENT `product`
 --
 ALTER TABLE `product`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- 使用資料表 AUTO_INCREMENT `product_category`
 --
 ALTER TABLE `product_category`
   MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- 使用資料表 AUTO_INCREMENT `product_subcategory`
 --
 ALTER TABLE `product_subcategory`
   MODIFY `subcategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- 使用資料表 AUTO_INCREMENT `q_a_category`
 --
 ALTER TABLE `q_a_category`
   MODIFY `categoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- 使用資料表 AUTO_INCREMENT `q_a_reply`
 --
 ALTER TABLE `q_a_reply`
   MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- 使用資料表 AUTO_INCREMENT `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

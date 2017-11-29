@@ -71,14 +71,14 @@
 		<div class="col-sm-12">
 			<div class="col-sm-8">
 				<div>
-					<a href="../upload/product/<?php echo $product['picture']; ?>"><img class="big_pic" src="../upload/product/<?php echo $product['picture']; ?>" alt=""></a>
+					<a href="../upload/product/<?php echo $product['picture']; ?>" target="_blank"><img class="big_pic" src="../upload/product/<?php echo $product['picture']; ?>" alt=""></a>
 				</div>
 				<hr></hr>
 				<div class="text-center">
 				<?php
 					for( $i =2; $i <=4; $i++){
 						if(isset($product['picture'.$i]) && $product['picture'.$i] != ""){?>
-							<a href="../upload/product/<?php echo $product['picture'.$i]; ?>"><img class="little_pic" src="../upload/product/<?php echo $product['picture'.$i]; ?>" alt=""></a>
+							<a href="../upload/product/<?php echo $product['picture'.$i]; ?>" target="_blank"><img class="little_pic" src="../upload/product/<?php echo $product['picture'.$i]; ?>" alt=""></a>
 				<?php }} ?>
 				</div>
 			</div>
@@ -178,8 +178,7 @@
 			<div class="col-sm-12">
 				規格表
 			</div>
-			<div id="content" class="col-sm-offset-2 col-sm-8 col-sm-offset-2">COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊COL8集中中間顯示詳細資訊
-			</div>
+			<div id="content" class="col-sm-offset-2 col-sm-8 col-sm-offset-2"><?php  echo $product['decription'];?></div>
 		</div>
 	</div>
 </div>

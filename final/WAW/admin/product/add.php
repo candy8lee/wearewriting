@@ -37,8 +37,7 @@ for($i =0; $i < count($_FILES['picture']['name']); $i++){
   $sth ->bindParam(":author", $_POST['author'], PDO::PARAM_STR);
   $sth -> execute();
 
-  if($_POST['subID'] != 'null') header('Location: list.php?cateID='.$_POST['cateID'].'&subID='.$_POST['subID']);
-  else header('Location: list.php?cateID='.$_POST['cateID']);
+  header("Location: list.php?cateID=".$_POST['cateID'].'&subID='.$_POST['subID']);
 }
 
 //brandID
