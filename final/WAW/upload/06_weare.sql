@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2017-11-29 11:37:21
+-- 產生時間： 2017-11-29 12:42:35
 -- 伺服器版本: 10.1.28-MariaDB
 -- PHP 版本： 7.1.11
 
@@ -535,6 +535,30 @@ INSERT INTO `q_a_reply` (`replyID`, `title`, `categoryID`, `reply`, `createdDate
 -- --------------------------------------------------------
 
 --
+-- 資料表結構 `specification`
+--
+
+CREATE TABLE `specification` (
+  `specID` int(11) NOT NULL,
+  `brandID` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `bottle_material` varchar(255) NOT NULL,
+  `volume` int(11) NOT NULL,
+  `createdDate` varchar(255) DEFAULT NULL,
+  `updatedDate` varchar(255) DEFAULT NULL,
+  `author` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 資料表的匯出資料 `specification`
+--
+
+INSERT INTO `specification` (`specID`, `brandID`, `type`, `bottle_material`, `volume`, `createdDate`, `updatedDate`, `author`) VALUES
+(1, 8, '瓶裝', '塑膠', 50, NULL, '2017-11-29 19:41:59', 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- 資料表結構 `users`
 --
 
@@ -672,6 +696,12 @@ ALTER TABLE `q_a_reply`
   ADD PRIMARY KEY (`replyID`);
 
 --
+-- 資料表索引 `specification`
+--
+ALTER TABLE `specification`
+  ADD PRIMARY KEY (`specID`);
+
+--
 -- 資料表索引 `users`
 --
 ALTER TABLE `users`
@@ -794,6 +824,12 @@ ALTER TABLE `q_a_category`
 --
 ALTER TABLE `q_a_reply`
   MODIFY `replyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- 使用資料表 AUTO_INCREMENT `specification`
+--
+ALTER TABLE `specification`
+  MODIFY `specID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用資料表 AUTO_INCREMENT `users`
