@@ -21,6 +21,7 @@
             <li><a href="../industry/list.php">相關產業介紹管理</a></li>
             <li><a href="../makeawish/list.php">許願池管理</a></li>
             <li><a href="../boards/list.php">留言板管理</a></li>
+            <li><a href="../specification/list.php">規格表管理</a></li>
           </ul>
         </li>
         <li class="dropdown">
