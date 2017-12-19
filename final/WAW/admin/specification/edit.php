@@ -5,7 +5,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
 
   $sql= "UPDATE  specification SET
                                     brandID= :brandID,
-                                    type= :type,
+                                    subID= :subID,
                                     bottle_material= :bottle_material,
                                     volume= :volume,
                                     updatedDate= :updatedDate,
@@ -13,7 +13,7 @@ if(isset($_POST['MM_update']) && $_POST['MM_update'] == 'UPDATE'){
                                     WHERE specID= :specID";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":brandID", $_POST['brandID'], PDO::PARAM_STR);
-  $sth ->bindParam(":type", $_POST['type'], PDO::PARAM_STR);
+  $sth ->bindParam(":subID", $_POST['subID'], PDO::PARAM_INT);
   $sth ->bindParam(":bottle_material", $_POST['bottle_material'], PDO::PARAM_STR);
   $sth ->bindParam(":volume", $_POST['volume'], PDO::PARAM_STR);
   $sth ->bindParam(":updatedDate", $_POST['updatedDate'], PDO::PARAM_STR);
@@ -27,6 +27,8 @@ $sth = $db->query("SELECT * FROM specification WHERE specID=".$_GET['specID']);
 $spec = $sth->fetch(PDO::FETCH_ASSOC);
 $sth = $db->query("SELECT * FROM brand WHERE brandID=".$spec['brandID']);
 $brand = $sth->fetch(PDO::FETCH_ASSOC);
+$sth = $db->query("SELECT * FROM product_subcategory where subcategoryID=".$spec['subID']);
+$subcategory = $sth->fetch(PDO::FETCH_ASSOC);
  ?>
 
 <html>
@@ -40,7 +42,7 @@ $brand = $sth->fetch(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-5" contenteditable="true">規格表管理-<?php echo $brand['name']; ?>-<?php echo $spec['type']; ?></h1>
+          <h1 class="display-5" contenteditable="true">規格表管理-<?php echo $brand['name']; ?>-<?php echo $subcategory['subcategory']; ?></h1>
         </div>
       </div>
       <div class="row">
@@ -50,7 +52,7 @@ $brand = $sth->fetch(PDO::FETCH_ASSOC);
               <a href="list.php">主控台</a>
             </li>
             <li class="breadcrumb-item">規格表管理</li>
-            <li class="breadcrumb-item active"><?php echo $brand['name']; ?>-<?php echo $spec['type']; ?></li>
+            <li class="breadcrumb-item active"><?php echo $brand['name']; ?>-<?php echo $subcategory['subcategory']; ?></li>
           </ul>
         </div>
       </div>
@@ -70,7 +72,7 @@ $brand = $sth->fetch(PDO::FETCH_ASSOC);
                   <?php } ?>
                   </select>
                   <label for="type" class="control-label">　子分類：</label>
-        					<select name="type" style="width: 100px;">
+        					<select name="subID" style="width: 100px;">
                     <option>無</option>
                   <?php //用product_category把subcategory排列，且判斷此分類下是否有子分類，若無則不用顯示optgroup
                       $sth = $db->query("SELECT * FROM product_category");
@@ -82,7 +84,7 @@ $brand = $sth->fetch(PDO::FETCH_ASSOC);
                           ?>
                               <optgroup label="<?php echo $group['category']; ?>">
                   					<?php foreach($opt as $row){ ?>
-                  						<option value="<?php echo $row['subcategory']; ?>" <?php if($row['subcategory'] == $spec['type']) echo "selected" ?>><?php echo $row['subcategory']; ?></option>
+                  						<option value="<?php echo $row['subcategoryID']; ?>" <?php if($row['subcategory'] == $subcategory['subcategory']) echo "selected" ?>><?php echo $row['subcategory']; ?></option>
                   					<?php } ?>
                     <?php } ?>
                   <?php } ?>

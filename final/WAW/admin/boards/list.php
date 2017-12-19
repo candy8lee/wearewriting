@@ -40,7 +40,7 @@ $totalRows = count($boards);
                 <th width=15%>時間</th>
                 <th width=20%>標題</th>
                 <th width=40%>內容</th>
-                <th width=15%>會員</th>
+                <th width=15%>發佈會員</th>
                 <th width=10%>刪除</th>
               </tr>
             </thead>

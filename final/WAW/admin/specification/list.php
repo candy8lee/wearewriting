@@ -51,7 +51,12 @@ $totalRows = count($spec);
                 $brand = $sth->fetch(PDO::FETCH_ASSOC);
                 echo "<td>".$brand['name']."</td>"
               ?>
-                <td><?php echo $row['type']; ?></td>
+                <td>
+                <?php
+                  $sth = $db->query("SELECT * FROM product_subcategory where subcategoryID=".$row['subID']);
+                  $subcategory = $sth->fetch(PDO::FETCH_ASSOC);
+                  echo $subcategory['subcategory'];?>
+                </td>
                 <td><?php echo $row['bottle_material']; ?></td>
                 <td><?php echo $row['volume']; ?>ml</td>
                 <td><a href="edit.php?specID=<?php echo $row['specID']; ?>" class="btn btn-warning" role="button"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>

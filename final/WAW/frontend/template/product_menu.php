@@ -47,7 +47,7 @@
 				$subcate = $sth->fetchALL(PDO::FETCH_ASSOC);
 				echo count($subcate);
 			 ?>
-			)</a><br>
+			個子分類)</a><br>
 		<a href="product_no_category.php">返回全部商品(<?php echo $items; ?>)</a>
 		</div>
 	</div>

@@ -5,6 +5,14 @@
 	#contact{
 		margin:-30px 0 -15px 0;
 	}
+	#spec table{
+		width: 80%;
+		margin: 20px 5px;
+	}
+	#spec th, td{
+		text-align: center;
+		padding: 10px 0px;
+	}
 	h3{
 		text-align: right;
 	}
@@ -175,8 +183,32 @@
 <div id="decription">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
+				<?php
+					$sth = $db->query("SELECT * FROM specification WHERE brandID=".$product['brandID']." AND subID=".$product['subcategoryID']);
+					$spec = $sth->fetch(PDO::FETCH_ASSOC);
+					$sth = $db->query("SELECT * FROM product_subcategory WHERE subcategoryID=".$product['subcategoryID']);
+					$subcategory = $sth->fetch(PDO::FETCH_ASSOC);
+				?>
 				規格表
+				<div id="spec">
+					<table>
+						<tbody>
+							<tr>
+								<th width="30%">品牌</th>
+								<th width="20%">容量</th>
+								<th width="25%">容器</th>
+								<th width="25%">容器材質</th>
+							</tr>
+							<tr>
+								<td><?php echo $brand['name'] ; ?></td>
+								<td><?php echo $spec['volume'] ; ?> ml</td>
+								<td><?php echo $subcategory['subcategory'] ; ?></td>
+								<td><?php echo $spec['bottle_material'] ; ?></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div id="content" class="col-sm-offset-2 col-sm-8 col-sm-offset-2"><?php  echo $product['decription'];?></div>
 		</div>

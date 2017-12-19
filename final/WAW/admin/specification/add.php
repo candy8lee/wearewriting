@@ -3,11 +3,11 @@ require_once("../template/login_check.php");
 require_once('../../asset/connection/database.php');
 if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
-  $sql= "INSERT INTO specification( brandID, type, bottle_material, volume, createdDate, author)
-                    VALUES ( :brandID, :type, :bottle_material, :volume, :createdDate, :author)";
+  $sql= "INSERT INTO specification( brandID, subID, bottle_material, volume, createdDate, author)
+                    VALUES ( :brandID, :subID, :bottle_material, :volume, :createdDate, :author)";
   $sth = $db ->prepare($sql);
   $sth ->bindParam(":brandID", $_POST['brandID'], PDO::PARAM_INT);
-  $sth ->bindParam(":type", $_POST['type'], PDO::PARAM_STR);
+  $sth ->bindParam(":subID", $_POST['subID'], PDO::PARAM_INT);
   $sth ->bindParam(":bottle_material", $_POST['bottle_material'], PDO::PARAM_STR);
   $sth ->bindParam(":volume", $_POST['volume'], PDO::PARAM_INT);
   $sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
@@ -62,7 +62,7 @@ include_once("../template/header.php");
                   <?php } ?>
                   </select>
                   <label for="type" class="control-label">　子分類：</label>
-        					<select name="type" style="width: 100px;">
+        					<select name="subID" style="width: 100px;">
                     <option>請選擇</option>
                   <?php //用product_category把subcategory排列，且判斷此分類下是否有子分類，若無則不用顯示optgroup
                       $sth = $db->query("SELECT * FROM product_category");
@@ -74,7 +74,7 @@ include_once("../template/header.php");
                           ?>
                               <optgroup label="<?php echo $group['category']; ?>">
                   					<?php foreach($opt as $row){ ?>
-                  						<option value="<?php echo $row['subcategory']; ?>"><?php echo $row['subcategory']; ?></option>
+                  						<option value="<?php echo $row['subcategoryID']; ?>"><?php echo $row['subcategory']; ?></option>
                   					<?php } ?>
                     <?php } ?>
                   <?php } ?>
