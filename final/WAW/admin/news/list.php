@@ -12,6 +12,7 @@ $totalRows = count($news);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>最新消息管理-清單列表</title>
 </head>
 
 <body>

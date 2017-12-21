@@ -20,6 +20,7 @@ $totalRows = count($question);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>會員客服管理-清單列表</title>
 </head>
 
 <body>

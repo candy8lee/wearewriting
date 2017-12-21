@@ -24,6 +24,7 @@ $name = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>常見問題分類管理-<?php echo $name['category']; ?></title>
 </head>
 
 <body>
@@ -58,7 +59,7 @@ $name = $sth->fetch(PDO::FETCH_ASSOC);
             <div class="form-group">
               <div class="row">
                 <div class="col-sm-2">
-                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>          
+                  <a class="btn btn-warning float-left" href="list.php" onclick="if(!confirm('尚未儲存，確定要返回上一頁？')){return false;};">取消並回上一頁</a>
                 </div>
                 <div class="col-sm-10 col-sm-offset-2 text-right">
                   <input type="hidden" name="MM_update" value="UPDATE">

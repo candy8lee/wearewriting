@@ -17,8 +17,7 @@ if(isset($_POST['MM_login']) && $_POST['MM_login'] == 'LOGIN'){
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Animated Login Screen - Bootsnipp.com</title>
+    <title>後台管理登入</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="login.css" rel="stylesheet" type="text/css" />

@@ -37,6 +37,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title><?php echo $QAcate['category']; ?>-<?php echo $QAreply['title']; ?></title>
 </head>
 
 <body>
@@ -45,7 +46,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-5" contenteditable="true"><?php echo $QAcate['category']; ?>-編輯</h1>
+          <h1 class="display-5" contenteditable="true"><?php echo $QAreply['title']; ?>-編輯</h1>
         </div>
       </div>
       <div class="row">
@@ -53,7 +54,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
         <ul class="breadcrumb">
           <li class="breadcrumb-item"><a href="list.php?cateID=<?php echo $_GET['cateID']; ?>">主控台</a></li>
           <li class="breadcrumb-item">常見問題管理-<?php echo $QAcate['category']; ?></li>
-		  <li class="breadcrumb-item active">編輯-<?php echo $QAreply['title']; ?></li>
+		  <li class="breadcrumb-item active"><?php echo $QAreply['title']; ?></li>
         </ul>
         <div class="col-md-12">
           <form class="" method="post" action="edit.php"  data-toggle="validator">

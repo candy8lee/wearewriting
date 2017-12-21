@@ -9,6 +9,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品分類管理-清單列表</title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

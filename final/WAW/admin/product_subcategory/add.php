@@ -31,6 +31,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品子分類管理-新增</title>
 </head>
 
 <body>
@@ -39,7 +40,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="display-5" contenteditable="true">子分類管理-新增</h1>
+          <h1 class="display-5" contenteditable="true">商品子分類管理-新增</h1>
         </div>
       </div>
       <div class="row">
@@ -48,7 +49,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
           <li class="breadcrumb-item">
             <a href="list.php">主控台</a>
           </li>
-          <li class="breadcrumb-item active">子分類管理-新增</li>
+          <li class="breadcrumb-item active">商品子分類管理-新增</li>
         </ul>
         <div class="col-md-12">
           <form class="" method="post" action="add.php"  data-toggle="validator" enctype="multipart/form-data">

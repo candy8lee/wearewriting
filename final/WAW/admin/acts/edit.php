@@ -44,6 +44,7 @@ $acts = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>活動管理-<?php echo $acts['title']; ?></title>
   <script type="text/javascript">
     $(function() {
       $(".Date").datepicker({

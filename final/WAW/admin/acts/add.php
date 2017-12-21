@@ -32,6 +32,7 @@ include_once("../template/header.php");
 
 <head>
 <?php require_once('../template/header.php'); ?>
+  <title>活動管理-新增</title>
   <script>
   $( function() {
     $( ".Date" ).datepicker({

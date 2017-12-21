@@ -23,6 +23,7 @@ include_once("../template/header.php");
 
 <head>
 <?php include_once("../template/header.php"); ?>
+<title>最新消息管理-新增</title>
   <script>
   $( function() {
     $( "#publishedDate" ).datepicker({

@@ -47,6 +47,7 @@ $member = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>會員管理-<?php echo $member['name']; ?></title>
   <script>
   $( function() {
     $( "#brithday" ).datepicker({

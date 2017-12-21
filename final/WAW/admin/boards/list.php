@@ -13,6 +13,7 @@ $totalRows = count($boards);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>留言板-清單列表</title>
 </head>
 
 <body>

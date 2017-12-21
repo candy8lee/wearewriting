@@ -30,6 +30,7 @@ $QAcate_select = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title><?php echo $QAcate['category']; ?>-新增</title>
 </head>
 
 <body>

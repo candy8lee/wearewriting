@@ -13,6 +13,7 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>訂單編號-<?php echo $order['orderNO']; ?></title>
 </head>
 
 <body>

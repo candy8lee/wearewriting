@@ -24,6 +24,7 @@ $product_category = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品分類管理-<?php echo $product_category['category']; ?></title>
 </head>
 
 <body>

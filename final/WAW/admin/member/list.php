@@ -12,6 +12,7 @@ $totalRows = count($member);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>會員管理-清單列表</title>
 </head>
 
 <body>

@@ -57,6 +57,7 @@ if(!isset($_GET['subID'])) $subID = 'null';
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品管理-新增</title>
 <script>
 $( function() {
   $( "#accordion" ).accordion({

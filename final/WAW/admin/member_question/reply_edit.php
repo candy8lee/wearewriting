@@ -22,6 +22,7 @@ $reply = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
 <?php include_once("../template/header.php"); ?>
+<title>會員客服管理-編輯回復-<?php echo $question['title']; ?></title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

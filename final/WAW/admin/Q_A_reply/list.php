@@ -12,6 +12,7 @@ $QAcate = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>常見問題管理-<?php echo $QAcate['category']; ?>清單列表</title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

@@ -25,6 +25,7 @@ include_once("../template/header.php");
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>規格表管理-新增</title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

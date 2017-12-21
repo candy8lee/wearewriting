@@ -32,6 +32,7 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php include_once("../template/header.php"); ?>
+<title>品牌管理-新增</title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

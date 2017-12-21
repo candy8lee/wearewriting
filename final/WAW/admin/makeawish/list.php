@@ -20,6 +20,7 @@ $totalRows = count($wish);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>許願池-清單列表</title>
 </head>
 
 <body>

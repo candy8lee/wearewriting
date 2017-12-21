@@ -21,6 +21,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
 <head>
 <?php include_once("../template/header.php"); ?>
+<title>相關產業介紹-新增</title>
 </head>
 <body>
   <?php include_once("../template/nav.php"); ?>

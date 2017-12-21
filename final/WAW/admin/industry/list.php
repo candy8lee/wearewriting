@@ -12,6 +12,7 @@ $totalRows = count($industry);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>相關產業介紹-清單列表</title>
 </head>
 
 <body>

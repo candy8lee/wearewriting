@@ -12,6 +12,7 @@ $totalRows = count($brand);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>品牌管理-清單列表</title>
 </head>
 
 <body>

@@ -29,6 +29,7 @@ $industry = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>相關產業介紹-<?php echo $industry['title']; ?></title>
 </head>
 <body>
 <?php require_once('../template/nav.php'); ?>

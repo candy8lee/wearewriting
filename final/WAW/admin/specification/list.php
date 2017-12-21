@@ -12,6 +12,7 @@ $totalRows = count($spec);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>規格表管理-清單列表</title>
 </head>
 
 <body>

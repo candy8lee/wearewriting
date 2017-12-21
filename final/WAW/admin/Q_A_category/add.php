@@ -22,6 +22,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>常見問題分類管理-新增</title>
 </head>
 
 <body>

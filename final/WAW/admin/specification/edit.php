@@ -35,6 +35,7 @@ $subcategory = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title><?php echo $brand['name']; ?>-<?php echo $subcategory['subcategory']; ?></title>
 </head>
 <body>
 <?php require_once('../template/nav.php'); ?>

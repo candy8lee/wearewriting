@@ -29,6 +29,7 @@ $news = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>最新消息管理-<?php echo $news['title']; ?></title>
   <script type="text/javascript">
     $(function() {
       $("#publishedDate").datepicker({

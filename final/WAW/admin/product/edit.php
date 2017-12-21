@@ -74,6 +74,7 @@ $product_category = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品管理-<?php echo $product['name']; ?></title>
 <script>
 $( function() {
   $( "#accordion" ).accordion({

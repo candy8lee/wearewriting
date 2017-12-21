@@ -27,6 +27,7 @@ $order = $sth->fetch(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>訂單管理-<?php echo $order['orderNO']; ?></title>
 </head>
 <body>
 <?php require_once('../template/nav.php'); ?>

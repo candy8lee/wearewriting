@@ -46,6 +46,7 @@ $nation = $sth->fetchALL(PDO::FETCH_ASSOC);
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>品牌管理-<?php echo $brand['name']; ?></title>
 </head>
 <body>
 <?php require_once('../template/nav.php'); ?>

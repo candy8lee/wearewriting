@@ -28,6 +28,7 @@ $category = $sth->fetch(PDO::FETCH_ASSOC);
 <html>
 <head>
 <?php require_once('../template/header.php'); ?>
+<title>商品管理-清單列表</title>
 </head>
 
 <body>

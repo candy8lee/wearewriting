@@ -20,6 +20,7 @@ if(isset($_POST['MM_insert']) && $_POST['MM_insert'] == 'INSERT'){
 
 <head>
   <?php include_once("../template/header.php"); ?>
+  <title>新增業務範圍</title>
 </head>
 <body>
 <?php require_once('../template/nav.php'); ?>
